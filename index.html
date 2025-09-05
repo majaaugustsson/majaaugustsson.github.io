@@ -13,30 +13,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <title>Välkommen – Maja Augustsson</title>
   <meta name="description" content="A webb of inspiration, connection, and a chance to make a real impact." />
 
-  <!-- =========================================
-       ➤ GOOGLE TAG MANAGER (HEAD)
-       Byt 'GTM-XXXXXXX' till din container-ID.
-       Klistra in din riktiga kod här.
-  ========================================== -->
-  <!-- GTM HEAD START -->
-  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
-  <!-- GTM HEAD END -->
-
   <!-- Typsnitt (valfritt) -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* =========================================
-         ➤ BAKGRUNDSBILD
-         Byt URL nedan till din bild. Du kan också
-         byta i inline-stylen på .hero om du föredrar.
-      ========================================== */
-      --hero-bg: url('images/hero-leaf-dark.jpg'); /* <-- BYT DENNA SÖKVÄG */
+      --hero-bg: url('images/hero-leaf-dark.jpg');
       --overlay: rgba(119, 77, 77, 0.45);
       --text: #f5f5f5;
       --accent: #ffffff;
@@ -52,7 +34,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background:#000;
     }
 
-    /* Hela heron */
     .hero{
       min-height:100vh;
       background-image: var(--hero-bg);
@@ -63,7 +44,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       flex-direction:column;
     }
 
-    /* Mörk overlay för läsbarhet */
     .hero::before{
       content:"";
       position:absolute; inset:0;
@@ -71,7 +51,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       pointer-events:none;
     }
 
-    /* Innehållslayout */
     .container{
       width:100%;
       max-width:var(--maxw);
@@ -81,7 +60,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       z-index:1;
     }
 
-    /* Övre rad med "knapparna" */
     .top-row{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -90,11 +68,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-top: clamp(8px, 2vh, 24px);
     }
 
-    /* =========================================
-       ➤ KNAPPAR (topptexterna)
-       Dessa är klickbara <a>-element. Byt href
-       till valfri länk/sektion.
-    ========================================== */
     .ghost-btn{
       display:inline-flex;
       align-items:center;
@@ -114,7 +87,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .ghost-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.6); }
 
-    /* Namn + rubriker */
     .byline{
       margin-top: clamp(36px, 8vh, 80px);
       font-family: "Playfair Display", serif;
@@ -138,7 +110,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       max-width: 48ch;
     }
 
-    /* Sektioner för ankarlänkarna */
     section{
       background:#776161;
       padding: 80px 0;
@@ -152,42 +123,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     section p{max-width:70ch; line-height:1.6}
 
-    /* Liten responsiv finputs */
     @media (max-width:720px){
       .top-row{ grid-template-columns: 1fr 1fr; }
     }
 
-    /* Tillgänglighet: fokus */
     .ghost-btn:focus{ outline: 3px solid #ffffffaa; outline-offset: 2px; }
   </style>
 </head>
-<body><!-- Google Tag Manager (noscript) -->
+<body>
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPWP25L2"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-  <!-- =========================================
-       ➤ GOOGLE TAG MANAGER (BODY/FALLBACK NOSCRIPT)
-       Klistra in din <noscript> iframe här om du använder GTM.
-  ========================================== -->
-  <!-- GTM BODY START -->
-  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
-  <!-- GTM BODY END -->
 
   <!-- HERO -->
   <header class="hero" role="banner" aria-label="Startsida med bakgrundsbild">
     <div class="container">
 
-      <!-- =========================================
-           ➤ TOPPKNAPPAR (klickbara)
-           Byt href="#…" eller till riktiga sidor.
-      ========================================== -->
+      <!-- TOPPKNAPPAR med dataLayer.push -->
       <nav class="top-row" aria-label="Snabblänkar">
-        <a class="ghost-btn" href="#date"     aria-label="Gå till datum">Mars 20, 2002</a>
-        <a class="ghost-btn" href="https://mail.google.com/mail/u/1/#inbox"    aria-label="Gå till starttid">mail</a>
-        <a class="ghost-btn" href="https://www.tiktok.com/@majaaugustsson"      aria-label="Gå till sluttid">tiktok</a>
-        <a class="ghost-btn" href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" aria-label="Gå till plats">linkedin</a>
+        <a class="ghost-btn" href="#date" aria-label="Gå till datum"
+           onclick="dataLayer.push({'event':'menu_click','menu_item':'Datum','menu_url':'#date'})">
+           Mars 20, 2002
+        </a>
+
+        <a class="ghost-btn" href="https://mail.google.com/mail/u/1/#inbox" aria-label="Gå till starttid"
+           onclick="dataLayer.push({'event':'menu_click','menu_item':'Mail','menu_url':'https://mail.google.com/mail/u/1/#inbox'})">
+           mail
+        </a>
+
+        <a class="ghost-btn" href="https://www.tiktok.com/@majaaugustsson" aria-label="Gå till sluttid"
+           onclick="dataLayer.push({'event':'menu_click','menu_item':'Tiktok','menu_url':'https://www.tiktok.com/@majaaugustsson'})">
+           tiktok
+        </a>
+
+        <a class="ghost-btn" href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" aria-label="Gå till plats"
+           onclick="dataLayer.push({'event':'menu_click','menu_item':'LinkedIn','menu_url':'https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit'})">
+           linkedin
+        </a>
       </nav>
 
       <div class="byline">Maja Augustsson</div>
@@ -196,7 +169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header>
 
-  <!-- Innehållssektioner som mål för knapparna -->
+  <!-- Innehållssektioner -->
   <section id="date">
     <div class="container">
       <h2>Datum</h2>
@@ -230,16 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script>
-    // Visa aktuellt år i footern
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    /* =========================================
-       ➤ BYT BAKGRUNDSBILD MED JS (VALFRITT)
-       Om du hellre sätter bilden här:
-       document.querySelector('.hero').style.backgroundImage = "url('PATH/TO/IMAGE.jpg')";
-    ========================================== */
-    // Exempel (kommenterad):
-    // document.querySelector('.hero').style.backgroundImage = "url('images/min-bild.jpg')";
   </script>
 </body>
 </html>
