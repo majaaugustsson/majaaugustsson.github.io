@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <!-- Google Tag Manager -->
+<head> 
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -25,6 +26,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     <!-- Analytics Script (load before page content) -->
     <script src="js/analytics.js"></script>
+
+    <style>
+      /* Enkel styling för chattbot */
+      #chatbot {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        max-height: 400px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+      }
+      #chatbot-messages {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+        font-size: 14px;
+      }
+      #chatbot-input {
+        display: flex;
+        border-top: 1px solid #ddd;
+      }
+      #chatbot-input input {
+        flex: 1;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+      }
+      #chatbot-input button {
+        border: none;
+        background: #007bff;
+        color: white;
+        padding: 0 15px;
+        cursor: pointer;
+      }
+    </style>
 </head>
 <body>
    <!-- Google Tag Manager (noscript) -->
@@ -83,5 +125,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <footer>
         <p>&copy; 2025 Web Analytics Demo</p>
     </footer>
+
+    <!-- Enkel chattbot -->
+    <div id="chatbot">
+      <div id="chatbot-messages">
+        <div><b>Bot:</b> Hej! Jag är din chattbot 🤖. Fråga mig om produkter eller priser.</div>
+      </div>
+      <div id="chatbot-input">
+        <input type="text" id="userMessage" placeholder="Skriv ett meddelande...">
+        <button onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+
+    <script>
+      function sendMessage() {
+        const input = document.getElementById("userMessage");
+        const message = input.value.trim();
+        if (!message) return;
+        
+        const chatbox = document.getElementById("chatbot-messages");
+        chatbox.innerHTML += "<div><b>Du:</b> " + message + "</div>";
+
+        let reply = "Jag förstod inte 🤔";
+        if (message.toLowerCase().includes("hej")) reply = "Hej! Hur kan jag hjälpa dig?";
+        if (message.toLowerCase().includes("pris")) reply = "Kolla produkterna ovan – de ligger på $19.99, $29.99 och $39.99.";
+        if (message.toLowerCase().includes("tack")) reply = "Varsågod! 🙌";
+
+        chatbox.innerHTML += "<div><b>Bot:</b> " + reply + "</div>";
+        chatbox.scrollTop = chatbox.scrollHeight;
+        input.value = "";
+      }
+    </script>
 </body>
 </html>
