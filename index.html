@@ -8,134 +8,140 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TPWP25L2');</script>
 <!-- End Google Tag Manager -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Välkommen – Maja Augustsson</title>
-<meta name="description" content="A webb of inspiration, connection, and a chance to make a real impact." />
 
-<!-- Typsnitt -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Välkommen – Maja Augustsson</title>
+  <meta name="description" content="A webb of inspiration, connection, and a chance to make a real impact." />
 
-<style>
-:root{
-  --hero-bg: url('images/hero-leaf-dark.jpg');
-  --overlay: rgba(119, 77, 77, 0.45);
-  --text: #f5f5f5;
-  --accent: #ffffff;
-  --maxw: 1200px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  color:var(--text);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  background:#000;
-}
+  <!-- Typsnitt -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-.hero{
-  min-height:100vh;
-  background-image: var(--hero-bg);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display:flex;
-  flex-direction:column;
-}
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background:var(--overlay);
-  pointer-events:none;
-}
+  <style>
+    :root{
+      --hero-bg: url('images/hero-leaf-dark.jpg');
+      --overlay: rgba(119, 77, 77, 0.45);
+      --text: #f5f5f5;
+      --accent: #ffffff;
+      --maxw: 1200px;
+    }
 
-.container{
-  width:100%;
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding: clamp(12px, 3vw, 28px);
-  position:relative;
-  z-index:1;
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background:#000;
+    }
 
-.top-row{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:clamp(8px,2vw,16px);
-  align-items:center;
-  margin-top: clamp(8px, 2vh, 24px);
-}
+    .hero{
+      min-height:100vh;
+      background-image: var(--hero-bg);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display:flex;
+      flex-direction:column;
+    }
 
-.ghost-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(14px, 2.2vw, 22px);
-  padding: .5rem .9rem;
-  color: var(--accent);
-  border: 1px solid rgba(255,255,255,.35);
-  background: rgba(0,0,0,.15);
-  backdrop-filter: blur(2px);
-  border-radius: 999px;
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-  text-align:center;
-  white-space: nowrap;
-}
-.ghost-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.6); }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:var(--overlay);
+      pointer-events:none;
+    }
 
-.byline{
-  margin-top: clamp(36px, 8vh, 80px);
-  font-family: "Playfair Display", serif;
-  font-size: clamp(16px, 2.2vw, 26px);
-  letter-spacing:.3px;
-}
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding: clamp(12px, 3vw, 28px);
+      position:relative;
+      z-index:1;
+    }
 
-.title{
-  font-family: "Playfair Display", serif;
-  font-weight: 600;
-  font-style: italic;
-  font-size: clamp(56px, 12vw, 140px);
-  line-height: .95;
-  margin: .1em 0 .15em;
-  text-shadow: 0 6px 30px rgba(0,0,0,.4);
-}
+    .top-row{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:clamp(8px,2vw,16px);
+      align-items:center;
+      margin-top: clamp(8px, 2vh, 24px);
+    }
 
-.subtitle{
-  font-family: "Playfair Display", serif;
-  font-size: clamp(16px, 2.6vw, 28px);
-  max-width: 48ch;
-}
+    .ghost-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(14px, 2.2vw, 22px);
+      padding: .5rem .9rem;
+      color: var(--accent);
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(0,0,0,.15);
+      backdrop-filter: blur(2px);
+      border-radius: 999px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      text-align:center;
+      white-space: nowrap;
+    }
+    .ghost-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.6); }
 
-section{
-  background:#776161;
-  padding: 80px 0;
-  color:#eaeaea;
-}
-section .container{max-width:var(--maxw)}
-section h2{
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 5vw, 48px);
-  margin: 0 0 12px;
-}
-section p{max-width:70ch; line-height:1.6}
+    .byline{
+      margin-top: clamp(36px, 8vh, 80px);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(16px, 2.2vw, 26px);
+      letter-spacing:.3px;
+    }
 
-@media (max-width:720px){
-  .top-row{ grid-template-columns: 1fr 1fr; }
-}
+    .title{
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(56px, 12vw, 140px);
+      line-height: .95;
+      margin: .1em 0 .15em;
+      text-shadow: 0 6px 30px rgba(0,0,0,.4);
+    }
 
-.ghost-btn:focus{ outline: 3px solid #ffffffaa; outline-offset: 2px; }
+    .subtitle{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(16px, 2.6vw, 28px);
+      max-width: 48ch;
+    }
 
-/* Flikar och chart */
-.tabcontent { display: none; padding: 20px; background: #5e4a4a; border-radius: 8px; margin-bottom: 40px; color: #fff; }
-.tablink { padding: 10px 20px; cursor: pointer; margin-right: 5px; background: #888; border: none; border-radius: 5px; color:#fff; transition: background 0.2s; }
-.tablink:hover { background: #aaa; }
-.tablink.active { background: #ccc; color:#000; }
-canvas { background:#7e5a5a; border-radius:8px; }
-</style>
+    section{
+      background:#776161;
+      padding: 80px 0;
+      color:#eaeaea;
+    }
+    section .container{max-width:var(--maxw)}
+    section h2{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(28px, 5vw, 48px);
+      margin: 0 0 12px;
+    }
+    section p{max-width:70ch; line-height:1.6}
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    @media (max-width:720px){
+      .top-row{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .ghost-btn:focus{ outline: 3px solid #ffffffaa; outline-offset: 2px; }
+
+    /* Stilar för flikar */
+    .tabcontent { display: none; padding: 20px; background: #5e4a4a; border-radius: 8px; margin-bottom: 40px; color: #fff; }
+    .tablink { padding: 10px 20px; cursor: pointer; margin-right: 5px; background: #888; border: none; border-radius: 5px; color:#fff; transition: background 0.2s; }
+    .tablink:hover { background: #aaa; }
+    .tablink.active { background: #ccc; color:#000; }
+
+    /* Chart-container */
+    #myChart { max-width: 600px; margin: 0 auto 40px; background:#5e4a4a; padding:20px; border-radius:8px; }
+
+    /* Reflektion */
+    .reflection { background:#5e4a4a; color:#fff; padding:30px; border-radius:8px; max-width:700px; margin:40px auto; line-height:1.6; }
+  </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -143,27 +149,49 @@ canvas { background:#7e5a5a; border-radius:8px; }
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<header class="hero" role="banner" aria-label="Startsida med bakgrundsbild">
-  <div class="container">
-    <nav class="top-row" aria-label="Snabblänkar">
-      <a class="ghost-btn" href="#date" onclick="dataLayer.push({'event':'menu_click','menu_item':'Datum','menu_url':'#date'})">Mars 20, 2002</a>
-      <a class="ghost-btn" href="https://mail.google.com/mail/u/1/#inbox" onclick="dataLayer.push({'event':'menu_click','menu_item':'Mail','menu_url':'https://mail.google.com/mail/u/1/#inbox'})">mail</a>
-      <a class="ghost-btn" href="https://www.tiktok.com/@majaaugustsson" onclick="dataLayer.push({'event':'menu_click','menu_item':'Tiktok','menu_url':'https://www.tiktok.com/@majaaugustsson'})">tiktok</a>
-      <a class="ghost-btn" href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" onclick="dataLayer.push({'event':'menu_click','menu_item':'LinkedIn','menu_url':'https://www.linkedin.com/feed/?trk=guest_homepage-basic-google-one-tap-submit'})">linkedin</a>
-    </nav>
-    <div class="byline">Maja Augustsson</div>
-    <h1 class="title">Välkommen</h1>
-    <p class="subtitle">A webb of inspiration, connection, and a chance to make a real impact</p>
-  </div>
-</header>
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Startsida med bakgrundsbild">
+    <div class="container">
 
-<!-- FLIKAR OCH CHART direkt under Välkommen -->
-<section id="portfolio-tabs">
-  <div class="container" style="text-align:center;">
-    <div class="tabs" style="margin-bottom:20px;">
-      <button class="tablink" onclick="openTab(event,'Doc')">Google Doc</button>
-      <button class="tablink" onclick="openTab(event,'Locker')">Locker Studio</button>
-      <button class="tablink" onclick="openTab(event,'Chart')">Chart.js Graf</button>
+      <!-- TOPPKNAPPAR med dataLayer.push -->
+      <nav class="top-row" aria-label="Snabblänkar">
+        <a class="ghost-btn" href="#date" aria-label="Gå till datum"
+           onclick="dataLayer.push({'event':'menu_click','menu_item':'Datum','menu_url':'#date'})">
+           Mars 20, 2002
+        </a>
+
+        <a class="ghost-btn" href="https://mail.google.com/mail/u/1/#inbox" aria-label="Gå till starttid"
+           onclick="dataLayer.push({'event':'menu_click','menu_item':'Mail','menu_url':'https://mail.google.com/mail/u/1/#inbox'})">
+           mail
+        </a>
+
+        <a class="ghost-btn" href="https://www.tiktok.com/@majaaugustsson" aria-label="Gå till sluttid"
+           onclick="dataLayer.push({'event':'menu_click','menu_item':'Tiktok','menu_url':'https://www.tiktok.com/@majaaugustsson'})">
+           tiktok
+        </a>
+
+        <a class="ghost-btn" href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" aria-label="Gå till plats"
+           onclick="dataLayer.push({'event':'menu_click','menu_item':'LinkedIn','menu_url':'https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit'})">
+           linkedin
+        </a>
+      </nav>
+
+      <div class="byline">Maja Augustsson</div>
+      <h1 class="title">Välkommen</h1>
+      <p class="subtitle">A webb of inspiration, connection, and a chance to make a real impact</p>
+    </div>
+  </header>
+
+  <!-- CHART -->
+  <div class="container" id="myChartContainer">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <!-- INTERAKTIVA FLIKAR -->
+  <div class="container">
+    <div class="tabs" style="text-align:center; margin-bottom:20px;">
+      <button class="tablink" onclick="openTab(event, 'Doc')">Google Doc</button>
+      <button class="tablink" onclick="openTab(event, 'Locker')">Locker Studio</button>
     </div>
 
     <div id="Doc" class="tabcontent">
@@ -176,77 +204,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p><a href="https://lookerstudio.google.com/u/0/reporting/7d0103b7-8baf-4b94-b66b-56118dbcc322/page/p_ejk6alo4vd/edit" target="_blank">Öppna Locker Studio</a></p>
       <img src="dashboards/locker_dashboard.png" alt="Locker Studio Screenshot" style="max-width:100%; margin-top:10px;">
     </div>
-
-    <div id="Chart" class="tabcontent">
-      <h3>Exempel Chart.js</h3>
-      <canvas id="myChart" width="400" height="200"></canvas>
-    </div>
   </div>
-</section>
 
-<!-- Övriga sektioner -->
-<section id="start">
-  <div class="container">
-    <h2>Starttid</h2>
-    <p>mail. Lägg till detaljer eller agenda.</p>
+  <!-- REFLEKTION -->
+  <div class="reflection">
+    <h3>Vad jag lärt mig hittills</h3>
+    <p>1. Kort text om vad jag lärt mig i Growth Tool Box – t.ex. GA4, Tag Manager, GitHub.</p>
+    <p>2. Kort text om hur jag arbetat med interaktiva dashboards och analyser.</p>
+    <p>3. Kort text om mina insikter kring Growth Marketing och framtida lärande.</p>
   </div>
-</section>
 
-<section id="end">
-  <div class="container">
-    <h2>Sluttid</h2>
-    <p>tiktok. Information om nästa steg eller CTA.</p>
-  </div>
-</section>
+  <!-- FOOTER -->
+  <footer style="text-align:center; color:#aaa; padding:28px 12px; background:#7e5a5a;">
+    © <span id="y"></span> Maja Augustsson
+  </footer>
 
-<section id="location">
-  <div class="container">
-    <h2>Plats</h2>
-    <p>location. Skriv in adress, karta eller resväg.</p>
-  </div>
-</section>
-
-<footer style="text-align:center; color:#aaa; padding:28px 12px; background:#7e5a5a;">
-  © <span id="y"></span> Maja Augustsson
-</footer>
-
-<script>
-document.getElementById('y').textContent = new Date().getFullYear();
-
-// Flik-funktion
-function openTab(evt, tabName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for(i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
-  tablinks = document.getElementsByClassName("tablink");
-  for(i=0;i<tablinks.length;i++){tablinks[i].className=tablinks[i].className.replace(" active","");}
-  document.getElementById(tabName).style.display="block";
-  evt.currentTarget.className += " active";
-}
-
-// Öppna första fliken automatiskt
-document.addEventListener("DOMContentLoaded", function(){document.querySelector(".tablink").click();});
-
-// Chart.js exempel
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun'],
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Chart.js exempel
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['USA', 'Sweden', 'Germany', 'UK', 'Other'],
         datasets: [{
-            label: 'Exempelvisningar',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: 'rgba(255, 255, 255, 0.6)',
-            borderColor: 'rgba(255, 255, 255, 1)',
-            borderWidth: 1
+          label: 'Besökare per land',
+          data: [300, 150, 100, 80, 50],
+          backgroundColor: 'rgba(255, 255, 255, 0.7)',
+          borderColor: '#fff',
+          borderWidth: 1
         }]
-    },
-    options: {
-        responsive:true,
-        scales: { y: { beginAtZero:true } },
-        plugins:{ legend:{ labels:{ color:'#fff' } } }
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color:'#fff' } } },
+        scales: {
+          x: { ticks: { color:'#fff' } },
+          y: { ticks: { color:'#fff' } }
+        }
+      }
+    });
+
+    // Flikar
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
     }
-});
-</script>
+    document.addEventListener("DOMContentLoaded", function() { document.querySelector(".tablink").click(); });
+
+    // Footer år
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
