@@ -128,6 +128,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .ghost-btn:focus{ outline: 3px solid #ffffffaa; outline-offset: 2px; }
+
+    /* Stilar för flikar */
+    .tabcontent { display: none; padding: 20px 0; background: #5e4a4a; border-radius: 8px; margin-bottom: 40px; color: #fff; }
+    .tablink { padding: 10px 20px; cursor: pointer; margin-right: 5px; background: #888; border: none; border-radius: 5px; color:#fff; transition: background 0.2s; }
+    .tablink:hover { background: #aaa; }
+    .tablink.active { background: #ccc; color:#000; }
   </style>
 </head>
 <body>
@@ -198,12 +204,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <footer style="text-align:center; color:#aaa; padding:28px 12px; background:#7e5a5a;">
-    © <span id="y"></span> Maja Augustsson
-  </footer>
+  <!-- INTERAKTIVA FLIKAR -->
+  <div class="container">
+    <div class="tabs" style="text-align:center; margin-bottom:20px;">
+      <button class="tablink" onclick="openTab(event, 'Doc')">Google Doc</button>
+      <button class="tablink" onclick="openTab(event, 'Locker')">Locker Studio</button>
+    </div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    <div id="Doc" class="tabcontent">
+      <h3>Google Doc</h3>
+      <iframe src="DIN_GOOGLE_DOC_LÄNK_HÄR" width="100%" height="400px" style="border:1px solid #ccc;"></iframe>
+      <p><a href="DIN_GOOGLE_DOC_LÄNK_HÄR" target="_blank">Öppna Google Doc i nytt fön
