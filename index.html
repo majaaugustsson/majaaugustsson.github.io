@@ -213,5 +213,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="Doc" class="tabcontent">
       <h3>Google Doc</h3>
-      <iframe src="DIN_GOOGLE_DOC_LÄNK_HÄR" width="100%" height="400px" style="border:1px solid #ccc;"></iframe>
-      <p><a href="DIN_GOOGLE_DOC_LÄNK_HÄR" target="_blank">Öppna Google Doc i nytt fön
+      <iframe src="https://docs.google.com/document/d/1A4qCQXjMSYUDK-HDvSrvj9C9btcYSUZidszYqlnGh7Q/edit?tab=t.0" width="100%" height="400px" style="border:1px solid #ccc;"></iframe>
+      <p><a href="https://docs.google.com/document/d/1A4qCQXjMSYUDK-HDvSrvj9C9btcYSUZidszYqlnGh7Q/edit?tab=t.0" target="_blank">Öppna Google Doc i nytt fönster</a></p>
+    </div>
+
+    <div id="Locker" class="tabcontent">
+      <h3>Locker Studio</h3>
+      <p><a href="https://lookerstudio.google.com/u/0/reporting/7d0103b7-8baf-4b94-b66b-56118dbcc322/page/p_ejk6alo4vd/edit" target="_blank">Öppna Locker Studio</a></p>
+      <img src="dashboards/locker_dashboard.png" alt="Locker Studio Screenshot" style="max-width:100%; margin-top:10px;">
+    </div>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    // Öppna första fliken automatiskt
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelector(".tablink").click();
+    });
+  </script>
+
+  <!-- FOOTER -->
+  <footer style="text-align:center; color:#aaa; padding:28px 12px; background:#7e5a5a;">
+    © <span id="y"></span> Maja Augustsson
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
