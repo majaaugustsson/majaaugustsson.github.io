@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -8,257 +10,153 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TPWP25L2');</script>
 <!-- End Google Tag Manager -->
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Välkommen – Maja Augustsson</title>
-  <meta name="description" content="A webb of inspiration, connection, and a chance to make a real impact." />
-
-  <!-- Typsnitt -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --hero-bg: url('images/hero-leaf-dark.jpg');
-      --overlay: rgba(119, 77, 77, 0.45);
-      --text: #f5f5f5;
-      --accent: #ffffff;
-      --maxw: 1200px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      color:var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      background:#000;
-    }
-
-    .hero{
-      min-height:100vh;
-      background-image: var(--hero-bg);
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      display:flex;
-      flex-direction:column;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute; inset:0;
-      background:var(--overlay);
-      pointer-events:none;
-    }
-
-    .container{
-      width:100%;
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding: clamp(12px, 3vw, 28px);
-      position:relative;
-      z-index:1;
-    }
-
-    .top-row{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:clamp(8px,2vw,16px);
-      align-items:center;
-      margin-top: clamp(8px, 2vh, 24px);
-    }
-
-    .ghost-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(14px, 2.2vw, 22px);
-      padding: .5rem .9rem;
-      color: var(--accent);
-      border: 1px solid rgba(255,255,255,.35);
-      background: rgba(0,0,0,.15);
-      backdrop-filter: blur(2px);
-      border-radius: 999px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      text-align:center;
-      white-space: nowrap;
-    }
-    .ghost-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.6); }
-
-    .byline{
-      margin-top: clamp(36px, 8vh, 80px);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(16px, 2.2vw, 26px);
-      letter-spacing:.3px;
-    }
-
-    .title{
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: clamp(56px, 12vw, 140px);
-      line-height: .95;
-      margin: .1em 0 .15em;
-      text-shadow: 0 6px 30px rgba(0,0,0,.4);
-    }
-
-    .subtitle{
-      font-family: "Playfair Display", serif;
-      font-size: clamp(16px, 2.6vw, 28px);
-      max-width: 48ch;
-    }
-
-    section{
-      background:#776161;
-      padding: 80px 0;
-      color:#eaeaea;
-    }
-    section .container{max-width:var(--maxw)}
-    section h2{
-      font-family: "Playfair Display", serif;
-      font-size: clamp(28px, 5vw, 48px);
-      margin: 0 0 12px;
-    }
-    section p{max-width:70ch; line-height:1.6}
-
-    @media (max-width:720px){
-      .top-row{ grid-template-columns: 1fr 1fr; }
-    }
-
-    .ghost-btn:focus{ outline: 3px solid #ffffffaa; outline-offset: 2px; }
-
-    /* Stilar för flikar */
-    .tabcontent { display: none; padding: 20px; background: #5e4a4a; border-radius: 8px; margin-bottom: 40px; color: #fff; }
-    .tablink { padding: 10px 20px; cursor: pointer; margin-right: 5px; background: #888; border: none; border-radius: 5px; color:#fff; transition: background 0.2s; }
-    .tablink:hover { background: #aaa; }
-    .tablink.active { background: #ccc; color:#000; }
-
-    /* Chart-container */
-    #myChart { max-width: 600px; margin: 0 auto 40px; background:#5e4a4a; padding:20px; border-radius:8px; }
-
-    /* Reflektion */
-    .reflection { background:#5e4a4a; color:#fff; padding:30px; border-radius:8px; max-width:700px; margin:40px auto; line-height:1.6; }
-  </style>
+   <title>Maja Augustsson | Portfolio</title>
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-page">
+
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPWP25L2"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+   <div id="navbar-placeholder"></div>
+<header id="home" class="fashion-hero">    <div class="hero-overlay">
+       <h1>MAJA<br>AUGUSTSSON</h1>
+       <p class="subtitle">Growth Marketer</p>
+      
+       <div class="profile-circle">
+           <img src="profil.jpg" alt="Maja Augustsson">
+       </div>
+   </div>
 
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-label="Startsida med bakgrundsbild">
-    <div class="container">
 
-      <!-- TOPPKNAPPAR med dataLayer.push -->
-      <nav class="top-row" aria-label="Snabblänkar">
-        <a class="ghost-btn" href="#date" aria-label="Gå till datum"
-           onclick="dataLayer.push({'event':'menu_click','menu_item':'Datum','menu_url':'#date'})">
-           Mars 20, 2002
-        </a>
+   <div class="scroll-down">
+       <span>SCROLLA</span>
+       <div class="line"></div>
+   </div>
+<p class="simple-scroll">SCROLLA NER</p>
+   </header>
 
-        <a class="ghost-btn" href="https://mail.google.com/mail/u/1/#inbox" aria-label="Gå till starttid"
-           onclick="dataLayer.push({'event':'menu_click','menu_item':'Mail','menu_url':'https://mail.google.com/mail/u/1/#inbox'})">
-           mail
-        </a>
 
-        <a class="ghost-btn" href="https://www.tiktok.com/@majaaugustsson" aria-label="Gå till sluttid"
-           onclick="dataLayer.push({'event':'menu_click','menu_item':'Tiktok','menu_url':'https://www.tiktok.com/@majaaugustsson'})">
-           tiktok
-        </a>
+<div class="scrolling-text">
+   <span>SEO • CONTENT MARKETING • PERFORMANCE MARKETING • E-HANDEL • CRM & CX • TECHXGROWTH • </span>
+   <span>SEO • CONTENT MARKETING • PERFORMANCE MARKETING • E-HANDEL • CRM & CX • TECHXGROWTH • </span>
+</div>
 
-        <a class="ghost-btn" href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" aria-label="Gå till plats"
-           onclick="dataLayer.push({'event':'menu_click','menu_item':'LinkedIn','menu_url':'https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit'})">
-           linkedin
-        </a>
-      </nav>
 
-      <div class="byline">Maja Augustsson</div>
-      <h1 class="title">Välkommen</h1>
-      <p class="subtitle">A webb of inspiration, connection, and a chance to make a real impact</p>
-    </div>
-  </header>
+<section id="about" class="about-section fade-in-section">
+   <div class="about-container">
+       <div class="about-text">
+           <h2>Om Mig</h2>
+           <p>Jag pluggar Growth Marketing på Berghs School of Communication och tycker det är riktigt kul att få kombinera kreativitet med analys. För mig handlar growth om att förstå hur människor tänker och beter sig online, testa idéer, analysera resultat och hela tiden förbättra. Jag gillar att jobba datadrivet, men också att tänka nytt och hitta smarta lösningar som faktiskt gör skillnad.
 
-  <!-- CHART -->
-  <div class="container" id="myChartContainer">
-    <canvas id="myChart"></canvas>
-  </div>
 
-  <!-- INTERAKTIVA FLIKAR -->
-  <div class="container">
-    <div class="tabs" style="text-align:center; margin-bottom:20px;">
-      <button class="tablink" onclick="openTab(event, 'Doc')">Google Doc</button>
-      <button class="tablink" onclick="openTab(event, 'Locker')">Locker Studio</button>
-    </div>
+Utanför plugget tränar jag mycket, framför allt löpning. Jag gillar att springa maraton och andra tävlingar, det är något speciellt med att sätta upp ett mål och verkligen jobba mot det. Annars hänger jag gärna med familj och vänner, och jag tycker om att laga mat och testa nya recept.</p>
+       </div>
 
-    <div id="Doc" class="tabcontent">
-      <h3>Google Doc</h3>
-      <p><a href="https://docs.google.com/document/d/1A4qCQXjMSYUDK-HDvSrvj9C9btcYSUZidszYqlnGh7Q/edit?usp=sharing" target="_blank">Öppna Google Doc i nytt fönster</a></p>
-    </div>
 
-    <div id="Locker" class="tabcontent">
-      <h3>Locker Studio</h3>
-      <p><a href="https://lookerstudio.google.com/u/0/reporting/7d0103b7-8baf-4b94-b66b-56118dbcc322/page/p_ejk6alo4vd/edit" target="_blank">Öppna Locker Studio</a></p>
-      <img src="dashboards/locker_dashboard.png" alt="Locker Studio Screenshot" style="max-width:100%; margin-top:10px;">
-    </div>
-  </div>
+       <div class="about-image-wrapper">
+           <img src="bild.jpg" alt="Maja Augustsson" class="main-image">
+       </div>
+   </div>
+</section>
 
-  <!-- REFLEKTION -->
-  <div class="reflection">
-    <h3>Vad jag lärt mig hittills</h3>
-    <p>1. Kort text om vad jag lärt mig i Growth Tool Box – t.ex. GA4, Tag Manager, GitHub.</p>
-    <p>2. Kort text om hur jag arbetat med interaktiva dashboards och analyser.</p>
-    <p>3. Kort text om mina insikter kring Growth Marketing och framtida lärande.</p>
-  </div>
 
-  <!-- FOOTER -->
-  <footer style="text-align:center; color:#aaa; padding:28px 12px; background:#7e5a5a;">
-    © <span id="y"></span> Maja Augustsson
-  </footer>
+<!-- SKILLS & CERTIFIKAT -->
+<section id="skills" class="skills-section fade-in-section">
+   <div class="skills-container">
+       <h2 class="section-title">Kompetens & Certifikat</h2>
+      
+       <div class="skills-grid">
+           <div class="skill-card">
+               <h3>Digital Marknadsföring</h3>
+               <ul>
+                   <li>SEO & SEM</li>
+                   <li>Social Media Marketing</li>
+                   <li>Content Strategy</li>
+                   <li>E-mail Marketing & Automation</li>
+                   <li>Konverteringsoptimering (CRO)</li>
+                   <li>Performance Marketing</li>
+                   <li>Influencer Marketing</li>
+                   <li>CRM & CX</li>
+                   <li>E-handel</li>
+               </ul>
+           </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Chart.js exempel
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['USA', 'Sweden', 'Germany', 'UK', 'Other'],
-        datasets: [{
-          label: 'Besökare per land',
-          data: [300, 150, 100, 80, 50],
-          backgroundColor: 'rgba(255, 255, 255, 0.7)',
-          borderColor: '#fff',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { labels: { color:'#fff' } } },
-        scales: {
-          x: { ticks: { color:'#fff' } },
-          y: { ticks: { color:'#fff' } }
-        }
-      }
-    });
 
-    // Flikar
-    function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
-      tablinks = document.getElementsByClassName("tablink");
-      for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    document.addEventListener("DOMContentLoaded", function() { document.querySelector(".tablink").click(); });
+           <div class="skill-card">
+               <h3>Verktyg & Tech</h3>
+               <ul>
+                   <li>Google Analytics 4 (GA4)</li>
+                   <li>Google Search Console</li>
+                   <li>Meta Ads Manager</li>
+                   <li>Ahrefs & Semrush</li>
+                   <li>Voyado & CRM-system</li>
+                   <li>Adobe Creative Cloud & Canva</li>
+               </ul>
+           </div>
 
-    // Footer år
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+
+           <div class="skill-card">
+               <h3>Certifikat & Utbildning</h3>
+               <img src="certifikat.png" alt="Mina certifikat" style="width: 100%; height: auto; border-radius: 4px; margin-top: 10px;">
+           </div>
+       </div>
+   </div>
+</section>
+
+
+<section id="education" class="education-section fade-in-section">
+   <div class="education-container">
+       <h2 class="section-title">Utbildning</h2>
+      
+       <div class="edu-item">
+           <span class="edu-year">AUGUSTI 2025 - PÅGÅENDE</span>
+           <div class="edu-content">
+               <h3>Growth Marketing</h3>
+               <p>Berghs School of Communication</p>
+               <p class="edu-details">Fokus på datadriven tillväxt, konverteringsoptimering och digital strategi.</p>
+           </div>
+       </div>
+
+
+       <div class="edu-item">
+           <span class="edu-year">SEP 2023- NOV 2023</span>
+           <div class="edu-content">
+               <h3>Marknadsföringskurs</h3>
+               <p>Berghs School of Communication</p>
+               <p class="edu-details">Målgruppssegmentering, personalisering och digitala strategier.</p>
+           </div>
+           </div>
+   </div>
+</section>
+<section id="contact" class="contact-footer fade-in-section">
+   <div class="contact-container">
+       <h2 class="contact-title">Låt oss <em>nätverka</em></h2>
+      <div class="contact-info">
+           <a href="mailto:majaugustsson@gmail.com" class="contact-link">majaugustsson@gmail.com</a>
+           <span class="contact-divider">|</span>
+           <a href="tel:0707261802" class="contact-link">070-726 18 02</a>
+           <span class="contact-divider">|</span>
+           <a href="https://www.linkedin.com/in/maja-augustsson-a09ab51b8/" target="_blank" class="contact-link">LinkedIn</a>
+       </div>
+   </div>
+</section>
+
+
+<!-- POPUP -->
+<div id="hire-popup" class="popup-overlay">
+   <div class="popup-content">
+       <span class="close-popup">&times;</span>
+       <p class="calling-text">someone's calling...</p>
+       <div class="phone-icon">📞</div>
+       <p class="hire-text">It's your next hire..</p>
+   </div>
+</div>
+
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,2328 @@
+​​:root {
+   --beige: #8c7355; /* Elegant brons/brun accentfärg */
+   --dark: #f5f2ed;  /* Mjuk beige bakgrund */
+   --white: #333333; /* Mjuk mörkgrå text */
+}
+
+
+body {
+   margin: 0;
+   background-color: var(--dark);
+   color: var(--white);
+   font-family: 'Playfair Display', serif;
+}
+
+
+/* Navigering */
+.luxury-nav {
+   position: fixed; /* Gör att den sitter fast */
+   top: 0;
+   width: 100%;
+   z-index: 1000;
+   background-color: rgba(255, 255, 255, 0.8); /* Ljus halvgenomskinlig */
+   backdrop-filter: blur(10px); /* Snygg suddig effekt bakom menyn */
+   padding: 24px 8%;
+}
+
+
+.logo {
+   font-family: 'Playfair Display', serif;
+   color: var(--beige);
+   font-size: 1.5rem;
+   letter-spacing: 5px;
+}
+
+
+.nav-links a {
+   color: #555; /* En mjukare mörkgrå färg */
+   text-decoration: none;
+   margin-left: 30px;
+   text-transform: uppercase;
+   font-size: 0.7rem;
+   letter-spacing: 2px;
+   opacity: 0.6; /* Lite genomskinlig (faded) från början */
+   transition: all 0.3s ease; /* Mjuk övergång */
+}
+
+
+.nav-links a:hover {
+   opacity: 1;
+   color: var(--beige); /* Byter till accentfärgen vid hover */
+}
+
+
+/* Hero - Adora Style */
+.fashion-hero {
+   height: 80vh;
+   display: flex;
+   align-items: center;
+   justify-content: center; /* Centrerar behållaren */
+   padding: 0 8%;
+   background-image: url('äng.jpg'); /* Byt ut 'hero-bg.jpg' mot namnet på din bild! */
+   background-size: cover;
+   background-position: center;
+   position: relative;
+}
+
+
+/* Ljus toning över bakgrundsbilden så texten syns tydligt */
+.fashion-hero::before {
+   content: '';
+   position: absolute;
+   top: 0; left: 0; right: 0; bottom: 0;
+   background: rgba(255, 255, 255, 0.85); /* Justera genomskinligheten här (0.85 = 85% vitt) */
+   z-index: 0;
+}
+
+
+.hero-overlay {
+   position: relative;
+   z-index: 1;
+   display: flex;
+   align-items: center;
+   justify-content: space-between; /* Trycker text till vänster och bild till höger */
+   width: 100%;
+   max-width: 1200px;
+}
+
+
+/* Text-styling (Vänsterjusterad) */
+.hero-overlay h1 {
+   font-family: 'Playfair Display', serif;
+   font-size: 7vw;
+   color: var(--beige);
+   line-height: 0.85;
+   margin: 0;
+   text-align: left; /* Flyttar texten till vänster */
+}
+
+
+.subtitle {
+   margin-top: 20px;
+   letter-spacing: 4px;
+   text-transform: uppercase;
+   font-size: 1rem;
+   color: var(--white);
+   text-align: left;
+}
+
+
+.see-more {
+   color: var(--beige);
+   text-decoration: underline;
+   font-style: italic;
+   display: block;
+   margin-top: 30px;
+   font-family: 'Playfair Display', serif;
+   text-align: left;
+}
+
+
+/* Cirkelbilden (Flyttad till höger) */
+.profile-circle {
+   width: 350px; /* Gjorde den lite större för att fylla ut hörnet snyggt */
+   height: 350px;
+   border-radius: 50%;
+   margin: 0; /* Tog bort auto-marginalen som centrerade bilden */
+   overflow: hidden;
+   border: none;
+   flex-shrink: 0; /* Hindrar cirkeln från att bli oval på mindre skärmar */
+   box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Ren och proffsig skugga */
+}
+
+
+.profile-circle img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+
+/* Fix för mobilen så det inte ser konstigt ut på små skärmar */
+@media (max-width: 768px) {
+   .hero-overlay {
+       flex-direction: column;
+       text-align: center;
+   }
+   .hero-overlay h1, .subtitle, .see-more {
+       text-align: center;
+   }
+   .profile-circle {
+       width: 250px;
+       height: 250px;
+       margin-top: 30px;
+   }
+}/* Sektion för att möjliggöra scroll */
+/* --- NY "COOL" OM MIG STYLING --- */
+.about-section {
+   padding: 128px 8%;
+   background-color: var(--dark);
+   position: relative;
+   overflow: hidden;
+}
+
+
+.about-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 96px;
+   position: relative;
+   z-index: 2;
+}
+
+
+.about-text { flex: 1; }
+
+
+.about-text h2 {
+   font-family: 'Playfair Display', serif;
+   color: var(--beige);
+   font-size: 3rem;
+   margin-bottom: 30px;
+}
+
+
+.about-text p {
+   color: var(--white);
+   max-width: 600px;
+   line-height: 1.8;
+}
+
+
+.about-image-wrapper {
+   position: relative;
+   width: 300px; /* Fast bredd för telefonen */
+   height: 600px; /* Fast höjd */
+   border: 12px solid #222; /* Ramen (bezel) */
+   border-radius: 45px; /* Rundade hörn */
+   background-color: #222;
+   box-shadow: 0 20px 50px rgba(0,0,0,0.2); /* Skugga bakom */
+   overflow: hidden;
+   flex-shrink: 0; /* Så den inte trycks ihop */
+}
+
+
+/* "Notch" i toppen */
+.about-image-wrapper::before {
+   content: '';
+   position: absolute;
+   top: 15px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 90px;
+   height: 25px;
+   background-color: #000;
+   border-radius: 20px;
+   z-index: 10;
+}
+
+
+.main-image {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display: block;
+}
+/* --- STYLING FÖR PORTFOLIOSIDAN --- */
+
+
+/* 1. Ta bort de lila länkarna */
+.portfolio-item, .portfolio-item:visited {
+   text-decoration: none;
+   color: var(--white); /* Gör texten vit istället för lila */
+   display: block;
+   transition: transform 0.3s ease;
+}
+
+
+/* 2. Fixa rubriken "Mina Arbeten" */
+.portfolio-selection {
+   padding: 150px 10% 100px; /* Mer padding gör att sidan blir längre = Scroll funkar! */
+   background-color: var(--dark);
+   min-height: 120vh; /* Tvingar fram scroll-möjlighet */
+}
+
+
+.beige-heading {
+   font-family: 'Playfair Display', serif;
+   color: var(--beige);
+   font-size: 4rem;
+   margin-bottom: 50px;
+}
+
+
+/* 3. Lägg projekten bredvid varandra */
+.selection-grid {
+   display: flex;
+   gap: 50px;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+
+.portfolio-item h2 {
+   font-family: 'Playfair Display', serif;
+   color: var(--beige);
+   margin-top: 20px;
+}
+
+
+.portfolio-item p {
+   font-size: 0.8rem;
+   color: #888;
+   text-transform: uppercase;
+}
+
+
+.link-text {
+   color: var(--beige);
+   font-style: italic;
+   margin-top: 10px;
+   display: block;
+}
+
+
+/* 4. Fixa bildrutorna */
+.image-placeholder {
+   width: 400px;
+   height: 250px;
+   background-color: #222; /* Om bilden saknas syns en mörk ruta */
+   border: 1px solid var(--beige);
+   overflow: hidden;
+}
+
+
+.image-placeholder img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+/* Denna kod gör att text och bild hamnar bredvid varandra */
+.about-container {
+   display: flex;
+   flex-direction: row; /* Rad istället för kolumn */
+   align-items: center;
+   justify-content: space-between;
+   gap: 50px;
+   padding: 100px 10%;
+}
+
+
+.about-text {
+   flex: 1;
+}
+
+
+.about-image {
+   flex: 1;
+}
+
+
+.about-image img {
+   width: 100%;
+   max-width: 500px;
+   height: auto;
+   border: 1px solid var(--beige);
+}.scrolling-text {
+   background-color: var(--beige); /* Den beiga färgen som sticker ut */
+   color: var(--dark); /* Mörk text på ljus bakgrund */
+   padding: 20px 0;
+   white-space: nowrap;
+   overflow: hidden;
+   display: flex;
+   font-weight: 600;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+}
+
+
+.scrolling-text {
+   background-color: var(--beige);
+   color: var(--dark);
+   padding: 20px 0;
+   white-space: nowrap;
+   overflow: hidden;
+   display: flex; /* Lägger span-taggarna på en lång rad */
+}
+
+
+.scrolling-text span {
+   display: inline-block;
+   padding-right: 50px; /* Mellanrummet mellan de två textblocken */
+   font-weight: 600;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+  
+   /* Animationen */
+   animation: marquee 20s linear infinite;
+}
+
+
+@keyframes marquee {
+   from { transform: translateX(0); }
+   to { transform: translateX(-100%); } /* Flyttar texten så nästa block tar över direkt */
+}/* --- KONTAKT SEKTION --- */
+.contact-footer {
+   padding: 80px 10%;
+   background-color: var(--dark);
+   text-align: center;
+   border-top: 1px solid rgba(0, 0, 0, 0.05); /* En jättetunn linje som avskiljare */
+}
+
+
+.contact-title {
+   font-family: 'Playfair Display', serif;
+   color: var(--beige);
+   font-size: 2.5rem;
+   margin-bottom: 30px;
+}
+
+
+.contact-title em {
+   font-style: italic;
+   font-weight: 400;
+}
+
+
+.contact-info {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+
+
+.contact-link {
+   color: var(--white);
+   text-decoration: none;
+   font-size: 1.1rem;
+   transition: color 0.3s ease;
+}
+
+
+.contact-link:hover {
+   color: var(--beige); /* Blir beige när man håller musen över */
+}
+
+
+.contact-divider {
+   color: var(--beige);
+   opacity: 0.5;
+}
+
+
+/* Gör att det ser bra ut på mobilen också */
+@media (max-width: 600px) {
+   .contact-info {
+       flex-direction: column;
+       gap: 10px;
+   }
+   .contact-divider {
+       display: none; /* Ta bort strecket på mobilen */
+   }
+}/* --- KONTAKT SEKTION STYLING --- */
+.contact-footer {
+   padding: 100px 10%;
+   background-color: var(--dark);
+   text-align: center;
+   border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+.contact-title {
+   font-family: 'Playfair Display', serif;
+   color: var(--beige);
+   font-size: 3rem;
+   margin-bottom: 40px;
+}
+
+
+.contact-info {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 25px;
+   flex-wrap: wrap; /* Gör att det ser bra ut på mobilen */
+}
+
+
+.contact-link {
+   color: var(--white);
+   text-decoration: none;
+   font-size: 1.1rem;
+   transition: all 0.3s ease;
+   border-bottom: 1px solid transparent;
+}
+
+
+.contact-link:hover {
+   color: var(--beige);
+   border-bottom: 1px solid var(--beige);
+   padding-bottom: 5px;
+}
+
+
+.contact-divider {
+   color: var(--beige);
+   opacity: 0.3;
+}/* --- SCROLL-INDIKATOR --- */
+.scroll-down {
+   position: absolute;
+   bottom: 30px; /* Placerar den längst ner i hjälten */
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 12px;
+   opacity: 0.7;
+   transition: opacity 0.3s ease;
+}
+
+
+.scroll-down:hover {
+   opacity: 1;
+}
+
+
+.scroll-down span {
+   font-size: 0.65rem;
+   letter-spacing: 4px;
+   color: var(--beige);
+   font-weight: 300;
+}
+
+
+.scroll-down .line {
+   width: 1px;
+   height: 60px;
+   background: linear-gradient(to bottom, var(--beige), transparent);
+   animation: scrollLine 2.5s infinite ease-in-out;
+}
+
+
+/* Animationen som gör att strecket "rinner" neråt */
+@keyframes scrollLine {
+   0% {
+       transform: scaleY(0);
+       transform-origin: top;
+   }
+   45% {
+       transform: scaleY(1);
+       transform-origin: top;
+   }
+   55% {
+       transform: scaleY(1);
+       transform-origin: bottom;
+   }
+  }
+
+
+.simple-scroll {
+   position: absolute;
+   bottom: 20px;
+   left: 50%;
+   transform: translateX(-50%);
+   color: var(--beige);
+   font-size: 0.7rem;
+   letter-spacing: 3px;
+   opacity: 0.6;
+   z-index: 100;
+   margin: 0;
+   pointer-events: none; /* LÄGG TILL DENNA RAD! */
+}.education-section {
+   background-color: var(--dark); /* Samma svarta bakgrund */
+   color: var(--beige);
+   padding: 128px 8%;
+   border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+.education-container {
+   max-width: 800px;
+   margin: 0 auto;
+}
+
+
+.edu-item {
+   display: flex;
+   margin-bottom: 40px;
+   gap: 30px;
+}
+
+
+.edu-year {
+   font-size: 0.8rem;
+   letter-spacing: 2px;
+   min-width: 120px;
+   opacity: 0.6;
+}
+
+
+.edu-content h3 {
+   font-family: 'Playfair Display', serif;
+   font-size: 1.8rem;
+   margin-bottom: 5px;
+}
+
+
+.edu-details {
+   font-size: 0.9rem;
+   margin-top: 10px;
+   opacity: 0.8;
+   line-height: 1.6;
+}.portfolio-content {
+   padding: 120px 20px;
+   background-color: var(--dark);
+   color: var(--beige);
+   min-height: 100vh;
+   text-align: center;
+}
+
+
+.portfolio-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 30px;
+   margin-top: 50px;
+}
+
+
+.project-card {
+   background: #ffffff;
+   border: 1px solid rgba(0, 0, 0, 0.03);
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+   padding: 30px;
+   transition: all 0.3s ease; /* Gör övergången mjuk */
+}
+
+
+.project-card:hover {
+   transform: translateY(-5px); /* Lyfter boxen lite när man håller musen över */
+   border-color: var(--beige);  /* Gör ramen tydligare */
+   background: #ffffff;
+
+
+}.portfolio-page-content {
+   padding: 120px 5% 80px; /* Lite mindre luft i toppen och sidorna */
+   background-color: var(--dark);
+   min-height: 100vh;
+}
+
+
+.portfolio-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr); /* Alla 4 bredvid varandra */
+   gap: 20px;
+   max-width: 100%;
+   margin: 40px auto 0;
+}
+
+
+/* Anpassning för mindre skärmar */
+@media (max-width: 1100px) {
+   .portfolio-grid {
+       grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+
+@media (max-width: 600px) {
+   .portfolio-grid {
+       grid-template-columns: 1fr;
+   }
+}
+.project-card {
+   background: #ffffff;
+   border: 1px solid rgba(0, 0, 0, 0.03);
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+   padding: 30px; /* Minskat från 48px för att ge mer plats åt innehåll */
+   transition: all 0.3s ease;
+   border-radius: 4px;
+   display: flex;
+   flex-direction: column;
+}
+
+
+.project-card:hover {
+   transform: translateY(-5px);
+   border-color: var(--beige);
+}
+
+
+.project-image img {
+   width: 100%;
+   height: 250px; /* Sätter en fast höjd för alla bilder */
+   object-fit: cover; /* Ser till att bilden fyller rutan snyggt utan att deformeras */
+   border-radius: 4px;
+   margin-bottom: 20px;
+   display: block;
+}
+
+
+.project-info h3 {
+   font-family: 'Playfair Display', serif;
+   color: var(--beige);
+   font-size: 1.3rem;
+   margin-bottom: 15px;
+   margin-top: 0;
+}
+
+
+.project-info ul {
+   list-style: none;
+   padding: 0;
+   margin: 0 0 20px 0;
+}
+
+
+.project-info li {
+   font-size: 0.95rem;
+   line-height: 1.6;
+   margin-bottom: 8px;
+   color: #555; /* Tydligare mörkgrå text */
+   position: relative;
+   padding-left: 15px;
+}
+
+
+.project-info li::before {
+   content: "•";
+   color: var(--beige);
+   position: absolute;
+   left: 0;
+}
+
+
+.project-tech {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+   padding-top: 15px;
+   border-top: 1px solid rgba(0,0,0,0.05);
+   margin-top: auto; /* Trycker ner taggarna till botten av kortet */
+}
+
+
+.project-tech span {
+   font-size: 0.7rem;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   color: #666;
+   background: #f9f9f9;
+   border: 1px solid #eee;
+   padding: 4px 10px;
+   border-radius: 4px;
+}
+
+
+/* --- LÄS MER-KNAPP --- */
+.read-more-btn {
+   display: inline-block;
+   margin-top: 24px;
+   padding: 12px 24px;
+   background-color: var(--beige);
+   color: var(--dark);
+   text-decoration: none;
+   text-transform: uppercase;
+   font-size: 0.7rem;
+   letter-spacing: 1.5px;
+   font-weight: 600;
+   border-radius: 4px;
+   text-align: center;
+   transition: all 0.3s ease;
+   border: 1px solid var(--beige);
+}
+
+
+.read-more-btn:hover {
+   background-color: transparent;
+   color: var(--beige);
+}
+
+
+/* --- PROJEKTDETALJ-SIDA --- */
+.project-detail-content {
+   padding: 120px 8% 80px;
+   max-width: 900px;
+   margin: 0 auto;
+   background-color: var(--dark);
+}
+
+
+.project-header {
+   text-align: center;
+   margin-bottom: 48px;
+}
+
+
+.project-header h1 {
+   font-size: 3.5rem;
+   color: var(--beige);
+   margin-bottom: 16px;
+}
+
+
+.project-subtitle {
+   font-size: 1.2rem;
+   color: #555;
+   max-width: 600px;
+   margin: 0 auto;
+   line-height: 1.6;
+   font-family: 'Montserrat', sans-serif; /* Använder en mer lättläst font för brödtext */
+}
+
+
+.project-main-image {
+   margin-bottom: 48px;
+}
+
+
+.project-main-image img {
+   width: 100%;
+   height: auto;
+   border-radius: 4px;
+   box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+
+.project-description {
+   color: #333;
+   line-height: 1.8;
+   font-family: 'Montserrat', sans-serif; /* Lättläst font */
+}
+
+
+.project-description h2 {
+   font-size: 2rem;
+   color: var(--beige);
+   margin-top: 40px;
+   margin-bottom: 20px;
+   font-family: 'Playfair Display', serif; /* Behåller den eleganta fonten för rubriker */
+}
+
+
+.back-to-portfolio {
+   text-align: center;
+   margin-top: 64px;
+}
+/* Behållaren som flyger över skärmen */
+.bird-container {
+   position: fixed;
+   top: 20%; /* Höjd från toppen */
+   left: -150px; /* Börjar utanför skärmen till vänster */
+   z-index: 9999;
+   pointer-events: none; /* Så man kan klicka igenom den */
+   animation: flyAcross 12s linear forwards; /* Hur lång tid flygresan tar */
+}
+
+
+.bird {
+   position: relative;
+   font-size: 2rem;
+}
+
+
+/* Pratbubblan */
+.welcome-bubble {
+   position: absolute;
+   top: -40px;
+   left: 20px;
+   background: var(--beige);
+   color: var(--dark);
+   padding: 5px 12px;
+   border-radius: 15px;
+   font-size: 0.8rem;
+   font-family: 'Playfair Display', serif;
+   font-weight: bold;
+   white-space: nowrap;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+/* Animering för själva flygresan */
+@keyframes flyAcross {
+   0% {
+       left: -150px;
+       transform: translateY(0);
+   }
+   25% {
+       transform: translateY(-20px); /* Lite guppande rörelse */
+   }
+   50% {
+       transform: translateY(0);
+   }
+   75% {
+       transform: translateY(-20px);
+   }
+   100% {
+       left: 110vw; /* Slutar utanför skärmen till höger */
+       transform: translateY(0);
+   }
+}/* Container som flyger in */
+.butterfly-wrapper {
+ position: fixed;
+ top: 30%;
+ left: -200px;
+ display: flex;
+ align-items: center;
+ animation: flyIn 3s ease-out forwards;
+}
+
+
+/* Själva fjärilen */
+.butterfly {
+ position: relative;
+ width: 80px;
+ height: 60px;
+}
+
+
+/* Vingar */
+.wing {
+ position: absolute;
+ width: 40px;
+ height: 60px;
+ background: linear-gradient(145deg, #d2b48c, #a67c52); /* beige/brun */
+ border-radius: 50%;
+ transform-origin: center right;
+ animation: flap 0.6s infinite ease-in-out alternate;
+}
+
+
+.left {
+ left: 0;
+ transform-origin: right center;
+}
+
+
+.right {
+ right: 0;
+ transform-origin: left center;
+}
+
+
+/* Kropp */
+.body {
+ position: absolute;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 10px;
+ height: 60px;
+ background-color: #6b4f3a;
+ border-radius: 5px;
+}
+
+
+/* Text */
+.welcome-text {
+ margin-left: 20px;
+ font-size: 24px;
+ color: #6b4f3a;
+ font-weight: 500;
+ opacity: 0;
+ animation: fadeIn 1.5s ease forwards;
+ animation-delay: 2.5s;
+}
+
+
+/* Animationer */
+
+
+@keyframes flap {
+ from {
+   transform: rotateY(0deg);
+ }
+ to {
+   transform: rotateY(50deg);
+ }
+}
+
+
+@keyframes flyIn {
+ to {
+   left: 30%;
+ }
+}
+
+
+@keyframes fadeIn {
+ to {
+   opacity: 1;
+ }
+}
+
+
+/* --- SCROLL ANIMATION --- */
+.fade-in-section {
+   opacity: 0;
+   transform: translateY(40px); /* Startar lite längre ner */
+   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+   will-change: opacity, transform;
+}
+
+
+.fade-in-section.is-visible {
+   opacity: 1;
+   transform: translateY(0); /* Glider upp till sin plats */
+}
+
+
+/* --- BILD-KARUSELL --- */
+.carousel-container {
+   position: relative;
+   max-width: 700px; /* Lite mindre bredd än texten för en snyggare inramning */
+   margin: 0 auto 48px; /* Centrerad */
+   border-radius: 8px;
+   overflow: hidden;
+   box-shadow: 0 15px 40px rgba(0,0,0,0.1); /* Mjuk, lyxig skugga */
+   background-color: #fff;
+}
+
+
+.carousel-slide {
+   display: none;
+   width: 100%;
+}
+
+
+.carousel-slide.active {
+   display: block;
+   animation: fadeEffect 0.5s;
+}
+
+
+.carousel-slide img {
+   width: 100%;
+   height: 450px; /* Fast höjd så sidan inte hoppar */
+   object-fit: cover; /* Beskär bilden snyggt */
+   display: block;
+}
+
+
+.carousel-btn {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   background-color: rgba(255, 255, 255, 0.8);
+   color: var(--dark);
+   border: none;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   cursor: pointer;
+   font-size: 1.2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.3s ease;
+   z-index: 10;
+}
+
+
+.carousel-btn:hover {
+   background-color: var(--beige);
+   color: #fff;
+}
+
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+
+@keyframes fadeEffect {
+   from { opacity: 0.6; }
+   to { opacity: 1; }
+}
+
+
+/* --- ADVANCED PROJECT PAGE LAYOUT --- */
+
+
+/* 1. Parallax Hero Section */
+.project-hero {
+   height: 70vh; /* Täcker 70% av skärmhöjden */
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed; /* Detta skapar parallax-effekten */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+   margin-bottom: 0;
+}
+
+
+/* Mörkt filter över bilden så texten syns */
+.project-hero::after {
+   content: '';
+   position: absolute;
+   top: 0; left: 0; right: 0; bottom: 0;
+   background: rgba(0,0,0,0.4);
+}
+
+
+.project-hero-content {
+   position: relative;
+   z-index: 2;
+   text-align: center;
+   color: #fff;
+   max-width: 800px;
+   padding: 0 20px;
+   animation: fadeInUp 1s ease-out;
+}
+
+
+.project-hero h1 {
+   font-size: 4rem;
+   margin-bottom: 10px;
+   color: #fff;
+   text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+
+.project-hero .subtitle {
+   font-size: 1.2rem;
+   text-transform: uppercase;
+   letter-spacing: 4px;
+   opacity: 0.9;
+}
+
+
+/* 2. Grid Layout med Sticky Sidebar */
+.project-container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 80px 5%;
+   display: grid;
+   grid-template-columns: 250px 1fr; /* Vänsterkolumn 250px, höger tar resten */
+   gap: 60px;
+   background-color: var(--dark);
+}
+
+
+.project-sidebar {
+   position: sticky;
+   top: 150px; /* Fastnar 150px från toppen */
+   height: fit-content;
+   padding: 30px;
+   background-color: #ffffff;
+   border-radius: 4px;
+   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+
+.sidebar-item {
+   margin-bottom: 30px;
+}
+
+
+.sidebar-label {
+   display: block;
+   font-size: 0.7rem;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   color: #888;
+   margin-bottom: 5px;
+}
+
+
+.sidebar-value {
+   font-family: 'Playfair Display', serif;
+   font-size: 1.1rem;
+   color: var(--white);
+}
+
+
+.project-body {
+   font-size: 1.05rem;
+   line-height: 1.8;
+   color: #444;
+}
+
+
+/* Mobilanpassning */
+@media (max-width: 900px) {
+   .project-container { grid-template-columns: 1fr; }
+   .project-sidebar { position: static; border-bottom: none; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 30px; }
+   .project-hero h1 { font-size: 2.5rem; }
+}
+/* Container */
+.butterfly-scene {
+ position: fixed;
+ top: 40%;
+ left: -150px;
+ display: flex;
+ align-items: center;
+ animation: flyPath 5s ease-out forwards;
+}
+
+
+/* Fjäril */
+.butterfly {
+ position: relative;
+ width: 100px;
+ height: 70px;
+}
+
+
+/* Vingar */
+.wing {
+ position: absolute;
+ width: 55px;
+ height: 70px;
+ background: radial-gradient(circle at 30% 30%, #e5c9a6, #b08968 70%);
+ border-radius: 60% 40% 60% 40%;
+ opacity: 0.95;
+}
+
+
+/* Vänster vinge */
+.left-wing {
+ left: 0;
+ transform-origin: right center;
+ animation: flapLeft 0.8s infinite ease-in-out alternate;
+}
+
+
+/* Höger vinge */
+.right-wing {
+ right: 0;
+ transform-origin: left center;
+ animation: flapRight 0.8s infinite ease-in-out alternate;
+}
+
+
+/* Kropp */
+.body {
+ position: absolute;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 12px;
+ height: 70px;
+ background: #5c4033;
+ border-radius: 10px;
+}
+
+
+/* Ving-animation */
+@keyframes flapLeft {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(65deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(-65deg); }
+}
+
+
+/* Flygväg (lite naturligare rörelse) */
+@keyframes flyPath {
+ 0% { left: -150px; top: 45%; }
+ 50% { left: 40%; top: 38%; }
+ 100% { left: 30%; top: 40%; }
+}
+
+
+/* Text */
+.welcome-text {
+ margin-left: 20px;
+ font-size: 26px;
+ color: #5c4033;
+ font-weight: 500;
+ opacity: 0;
+ animation: fadeIn 2s ease forwards;
+ animation-delay: 4s;
+}
+
+
+@keyframes fadeIn {
+ to { opacity: 1; }
+}
+
+
+/* --- NY FJÄRIL & VÄLKOMSTTEXT --- */
+.home-page #intro-butterfly {
+   position: absolute;
+   top: 25%;
+   left: -150px; /* Startar utanför bild */
+   z-index: 2000; /* Ligger över allt annat */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   pointer-events: none; /* Så man kan klicka igenom den */
+   animation: flyInSmooth 4s ease-out forwards;
+}
+
+
+.butterfly-wings {
+   position: relative;
+   width: 60px;
+   height: 50px;
+   transform-style: preserve-3d;
+}
+
+
+.wing {
+   position: absolute;
+   width: 30px;
+   height: 50px;
+   /* Gradient mellan din beige färg och en ljusrosa */
+   background: linear-gradient(135deg, var(--beige), #ffdae0);
+   border-radius: 50% 50% 20% 50%;
+   opacity: 0.9;
+   border: 1px solid rgba(255,255,255,0.4);
+}
+
+
+.wing.left {
+   left: 0;
+   transform-origin: right center;
+   animation: wingFlap 0.2s infinite alternate;
+}
+
+
+.wing.right {
+   right: 0;
+   transform-origin: left center;
+   transform: scaleX(-1); /* Spegelvänd */
+   animation: wingFlap 0.2s infinite alternate;
+   animation-delay: -0.1s; /* Synkar vingarna snyggt */
+}
+
+
+.welcome-bubble {
+   margin-top: 10px;
+   background-color: var(--beige);
+   color: var(--dark);
+   padding: 5px 12px;
+   border-radius: 12px;
+   font-size: 0.8rem;
+   font-weight: 600;
+   opacity: 0;
+ box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+   animation: showText 1s forwards 3.5s; /* Visas när fjärilen landat */
+}
+
+
+@keyframes flyInSmooth {
+   0% { left: -150px; top: 30%; transform: scale(0.6) rotate(15deg); }
+   100% { left: 15%; top: 20%; transform: scale(1) rotate(0deg); }
+}
+.butterfly-wrapper {
+ position: fixed;
+ top: 35%;
+ left: -200px;
+ display: flex;
+ align-items: center;
+ animation: flyIn 3s ease-out forwards;
+}
+
+
+.butterfly {
+ position: relative;
+ width: 80px;
+ height: 60px;
+ animation: stopFlap 3s forwards;
+}
+
+
+/* Vingarnas form och färg (Beige med rosa skimmer) */
+.wing {
+   position: absolute;
+   width: 45px;
+   height: 60px;
+   background: #f5f2ed; /* Marville beige */
+   border-radius: 50% 50% 20% 60%; /* Skapar vingformen */
+   border: 0.5px solid #e8d8c3;
+   box-shadow: inset 8px -10px 15px rgba(255, 192, 203, 0.5); /* Ljusrosa skugga */
+}
+
+
+.wing.left {
+   left: 0;
+   transform-origin: right center;
+   animation: flapLeft 0.2s infinite alternate ease-in-out;
+}
+
+
+.wing.right {
+   left: 45px;
+   transform: scaleX(-1); /* Spegelvänder för symmetri */
+   transform-origin: left center;
+   animation: flapRight 0.2s infinite alternate ease-in-out;
+}
+
+
+/* Kroppen som sitter i mitten */
+.butterfly::before {
+   content: '';
+   position: absolute;
+   top: 20px;
+   left: 42px;
+   width: 6px;
+   height: 25px;
+   background: #5d4037; /* Mörkbrun */
+   border-radius: 10px;
+   z-index: 10;
+}
+
+
+/* Text */
+.welcome-text {
+ margin-left: 20px;
+ font-size: 24px;
+ color: #6b4f3a;
+ font-weight: 500;
+ opacity: 0;
+ animation: fadeIn 1s ease forwards;
+ animation-delay: 2.5s;
+}
+
+
+/* Animationer */
+
+
+@keyframes flyIn {
+ to {
+   left: 30%;
+ }
+}
+
+
+@keyframes flapLeft {
+ from { transform: rotateY(15deg); }
+ to { transform: rotateY(55deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(-15deg); }
+ to { transform: rotateY(-55deg); }
+}
+@keyframes fadeIn {
+ to { opacity: 1; }
+}/* Behållaren som rör sig över skärmen */
+#butterfly-container {
+ position: absolute;
+ top: 20%;
+ left: -100px; /* Startar utanför skärmen */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ animation: flyIn 5s forwards ease-out;
+}
+
+
+/* Fjärilens kropp och vingar */
+.butterfly {
+ position: relative;
+ width: 40px;
+ height: 40px;
+ transform-style: preserve-3d;
+}
+
+
+.wing {
+ position: absolute;
+ width: 25px;
+ height: 35px;
+ background: #ff69b4; /* Rosa fjäril, ändra gärna färg! */
+ border-radius: 50% 50% 0 50%;
+ top: 0;
+}
+
+
+.left {
+ left: -20px;
+ transform-origin: right center;
+ animation: flapLeft 0.2s infinite alternate;
+}
+
+
+.right {
+ right: -20px;
+ border-radius: 50% 50% 50% 0;
+ transform-origin: left center;
+ animation: flapRight 0.2s infinite alternate;
+}
+
+
+/* Animationer */
+@keyframes flapLeft {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(60deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(-60deg); }
+}
+
+
+@keyframes flyIn {
+ 0% { left: -100px; top: 20%; }
+ 100% { left: 50%; top: 30%; transform: translateX(-50%); }
+}
+
+
+/* Pratbubblan */
+#welcome-message {
+ opacity: 0;
+ background: white;
+ border: 2px solid #ccc;
+ padding: 10px;
+ border-radius: 15px;
+ margin-top: 10px;
+ font-family: sans-serif;
+ position: relative;
+ animation: showText 1s forwards 5s; /* Startar efter 5 sekunder */
+}
+
+
+@keyframes showText {
+ to { opacity: 1; }
+}/* Behållaren för fjärilen */
+#butterfly-container {
+ position: fixed; /* Ändra till fixed så den flyger över allt annat */
+ top: 50px;
+ left: -150px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ z-index: 9999;
+ animation: flyIn 5s forwards ease-out;
+}
+
+
+/* Fjärilens vingar - Nu mer lika vingar än öron */
+.butterfly {
+ position: relative;
+ width: 40px;
+ height: 40px;
+ transform-style: preserve-3d;
+ margin-bottom: 10px;
+}
+
+
+.wing {
+ position: absolute;
+ width: 30px;
+ height: 40px;
+ background: #e6679a; /* Din rosa färg */
+ border-radius: 50% 50% 20% 50%;
+}
+
+
+.left {
+ left: -25px;
+ transform-origin: right center;
+ animation: flapLeft 0.2s infinite alternate;
+}
+
+
+.right {
+ right: -25px;
+ border-radius: 50% 50% 50% 20%;
+ transform-origin: left center;
+ animation: flapRight 0.2s infinite alternate;
+}
+
+
+/* FIXA TEXTEN: Den vita bubblan och textfärgen */
+#welcome-message {
+ opacity: 0;
+ background: white;
+ color: #333; /* Mörk text så den syns mot vitt! */
+ padding: 10px 20px;
+ border-radius: 20px;
+ font-family: 'Arial', sans-serif;
+ font-weight: bold;
+ white-space: nowrap;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+ animation: showText 0.5s forwards 5s; /* Visas efter 5 sekunder */
+}
+
+
+/* Animationer */
+@keyframes flapLeft {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(70deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(-70deg); }
+}
+
+
+@keyframes flyIn {
+ 0% { left: -150px; top: 10%; }
+ 100% { left: 15%; top: 15%; } /* Justera dessa för var den ska landa */
+}
+
+
+@keyframes showText {
+ to { opacity: 1; }
+}.butterfly-container {
+ position: relative;
+ min-height: 220px;          /* ger plats åt animationen */
+ margin: 2rem 0;
+ width: 100%;
+}
+
+
+.butterfly {
+ position: absolute;
+ left: -160px;               /* börjar utanför skärmen till vänster */
+ top: 15%;
+ font-size: 110px;           /* storlek på fjärilen */
+ animation: flyIn 4.2s ease-out forwards;
+ z-index: 5;
+}
+
+
+.welcome-text {
+ font-size: 3.5rem;
+ color: #f8c1cc;             /* ljusrosa */
+ text-align: center;
+ padding-top: 100px;
+ opacity: 0;
+ animation: fadeIn 1.3s 3.5s forwards;
+ text-shadow: 0 0 12px rgba(248, 193, 204, 0.5);
+ font-family: 'Playfair Display', serif;
+}
+
+
+/* Animationer */
+@keyframes flyIn {
+ 0% {
+   left: -160px;
+   transform: rotate(-40deg) scale(0.4);
+ }
+ 50% {
+   left: calc(50% - 80px);
+   transform: rotate(25deg) scale(1.3);
+ }
+ 80% {
+   left: calc(50% - 50px);
+   transform: rotate(-12deg) scale(1.08);
+ }
+ 100% {
+   left: calc(50% - 55px);
+   transform: rotate(0deg) scale(1);
+ }
+}
+
+
+@keyframes fadeIn {
+ to {
+   opacity: 1;
+ }
+}
+
+
+@keyframes flap {
+ 0%   { transform: rotate(8deg); }
+ 100% { transform: rotate(-8deg); }
+}/* Behållaren för fjärilen */
+#butterfly-container {
+ position: fixed; /* Ändra till fixed så den flyger över allt annat */
+ top: 50px;
+ left: -150px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ z-index: 9999;
+ animation: flyIn 5s forwards ease-out;
+}
+
+
+/* Fjärilens vingar - Nu mer lika vingar än öron */
+.butterfly {
+ position: relative;
+ width: 40px;
+ height: 40px;
+ transform-style: preserve-3d;
+ margin-bottom: 10px;
+}
+
+
+.wing {
+ position: absolute;
+ width: 30px;
+ height: 40px;
+ background: #e6679a; /* Din rosa färg */
+ border-radius: 50% 50% 20% 50%;
+}
+
+
+.left {
+ left: -25px;
+ transform-origin: right center;
+ animation: flapLeft 0.2s infinite alternate;
+}
+
+
+.right {
+ right: -25px;
+ border-radius: 50% 50% 50% 20%;
+ transform-origin: left center;
+ animation: flapRight 0.2s infinite alternate;
+}
+
+
+/* FIXA TEXTEN: Den vita bubblan och textfärgen */
+#welcome-message {
+ opacity: 0;
+ background: white;
+ color: #333; /* Mörk text så den syns mot vitt! */
+ padding: 10px 20px;
+ border-radius: 20px;
+ font-family: 'Playfair Display', serif;
+ font-weight: bold;
+ white-space: nowrap;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+ animation: showText 0.5s forwards 5s; /* Visas efter 5 sekunder */
+}
+
+
+/* Animationer */
+@keyframes flapLeft {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(70deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(-70deg); }
+}
+
+
+@keyframes flyIn {
+ 0% { left: -150px; top: 10%; }
+ 100% { left: 15%; top: 15%; } /* Justera dessa för var den ska landa */
+}
+
+
+@keyframes showText {
+ to { opacity: 1; }
+}/* Behållaren som rör sig över skärmen */
+#butterfly-container {
+ position: absolute;
+ top: 20%;
+ left: -100px; /* Startar utanför skärmen */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ animation: flyIn 5s forwards ease-out;
+}
+
+
+/* Fjärilens kropp och vingar */
+.butterfly {
+ position: relative;
+ width: 40px;
+ height: 40px;
+ transform-style: preserve-3d;
+}
+
+
+.wing {
+ position: absolute;
+ width: 25px;
+ height: 35px;
+ background: #ff69b4; /* Rosa fjäril, ändra gärna färg! */
+ border-radius: 50% 50% 0 50%;
+ top: 0;
+}
+
+
+.left {
+ left: -20px;
+ transform-origin: right center;
+ animation: flapLeft 0.2s infinite alternate;
+}
+
+
+.right {
+ right: -20px;
+ border-radius: 50% 50% 50% 0;
+ transform-origin: left center;
+ animation: flapRight 0.2s infinite alternate;
+}
+
+
+/* Animationer */
+@keyframes flapLeft {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(60deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(-60deg); }
+}
+
+
+@keyframes flyIn {
+ 0% { left: -100px; top: 20%; }
+ 100% { left: 50%; top: 30%; transform: translateX(-50%); }
+}
+
+
+/* Pratbubblan */
+#welcome-message {
+ opacity: 0;
+ background: white;
+ border: 2px solid #ccc;
+ padding: 10px;
+ border-radius: 15px;
+ margin-top: 10px;
+ font-family: 'Playfair Display', serif;
+ position: relative;
+ animation: showText 1s forwards 5s; /* Startar efter 5 sekunder */
+}
+
+
+@keyframes showText {
+ to { opacity: 1; }
+}/* Behållaren som rör sig över skärmen */
+#butterfly-container {
+ position: absolute;
+ top: 20%;
+ left: -100px; /* Startar utanför skärmen */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ animation: flyIn 5s forwards ease-out;
+}
+
+
+/* Fjärilens kropp och vingar */
+.butterfly {
+ position: relative;
+ width: 40px;
+ height: 40px;
+ transform-style: preserve-3d;
+}
+
+
+.wing {
+ position: absolute;
+ width: 25px;
+ height: 35px;
+ background: #ff69b4; /* Rosa fjäril, ändra gärna färg! */
+ border-radius: 50% 50% 0 50%;
+ top: 0;
+}
+
+
+.left {
+ left: -20px;
+ transform-origin: right center;
+ animation: flapLeft 0.2s infinite alternate;
+}
+
+
+.right {
+ right: -20px;
+ border-radius: 50% 50% 50% 0;
+ transform-origin: left center;
+ animation: flapRight 0.2s infinite alternate;
+}
+
+
+/* Animationer */
+@keyframes flapLeft {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(60deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(-60deg); }
+}
+
+
+@keyframes flyIn {
+ 0% { left: -100px; top: 20%; }
+ 100% { left: 50%; top: 30%; transform: translateX(-50%); }
+}
+
+
+/* Pratbubblan */
+#welcome-message {
+ opacity: 0;
+ background: white;
+ border: 2px solid #ccc;
+ padding: 10px;
+ border-radius: 15px;
+ margin-top: 10px;
+ font-family: 'Playfair Display', serif;
+ position: relative;
+ animation: showText 1s forwards 5s; /* Startar efter 5 sekunder */
+}
+
+
+@keyframes showText {
+ to { opacity: 1; }
+}/* Behållaren som rör sig över skärmen */
+#butterfly-container {
+ position: absolute;
+ top: 20%;
+ left: -100px; /* Startar utanför skärmen */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ animation: flyIn 5s forwards ease-out;
+}
+
+
+/* Fjärilens kropp och vingar */
+.butterfly {
+ position: relative;
+ width: 40px;
+ height: 40px;
+ transform-style: preserve-3d;
+}
+
+
+.wing {
+ position: absolute;
+ width: 25px;
+ height: 35px;
+ background: #ff69b4; /* Rosa fjäril, ändra gärna färg! */
+ border-radius: 50% 50% 0 50%;
+ top: 0;
+}
+
+
+.left {
+ left: -20px;
+ transform-origin: right center;
+ animation: flapLeft 0.2s infinite alternate;
+}
+
+
+.right {
+ right: -20px;
+ border-radius: 50% 50% 50% 0;
+ transform-origin: left center;
+ animation: flapRight 0.2s infinite alternate;
+}
+
+
+/* Animationer */
+@keyframes flapLeft {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(60deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(-60deg); }
+}
+
+
+@keyframes flyIn {
+ 0% { left: -100px; top: 20%; }
+ 100% { left: 50%; top: 30%; transform: translateX(-50%); }
+}
+
+
+/* Pratbubblan */
+#welcome-message {
+ opacity: 0;
+ background: white;
+ border: 2px solid #ccc;
+ padding: 10px;
+ border-radius: 15px;
+ margin-top: 10px;
+ font-family: 'Playfair Display', serif;
+ position: relative;
+ animation: showText 1s forwards 5s; /* Startar efter 5 sekunder */
+}
+
+
+@keyframes showText {
+ to { opacity: 1; }
+}/* Behållaren som rör sig över skärmen */
+#butterfly-container {
+ position: absolute;
+ top: 20%;
+ left: -100px; /* Startar utanför skärmen */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ animation: flyIn 5s forwards ease-out;
+}
+
+
+/* Fjärilens kropp och vingar */
+.butterfly {
+ position: relative;
+ width: 40px;
+ height: 40px;
+ transform-style: preserve-3d;
+}
+
+
+.wing {
+ position: absolute;
+ width: 25px;
+ height: 35px;
+ background: #ff69b4; /* Rosa fjäril, ändra gärna färg! */
+ border-radius: 50% 50% 0 50%;
+ top: 0;
+}
+
+
+.left {
+ left: -20px;
+ transform-origin: right center;
+ animation: flapLeft 0.2s infinite alternate;
+}
+
+
+.right {
+ right: -20px;
+ border-radius: 50% 50% 50% 0;
+ transform-origin: left center;
+ animation: flapRight 0.2s infinite alternate;
+}
+
+
+/* Animationer */
+@keyframes flapLeft {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(60deg); }
+}
+
+
+@keyframes flapRight {
+ from { transform: rotateY(0deg); }
+ to { transform: rotateY(-60deg); }
+}
+
+
+@keyframes flyIn {
+ 0% { left: -100px; top: 20%; }
+ 100% { left: 50%; top: 30%; transform: translateX(-50%); }
+}
+
+
+/* Pratbubblan */
+#welcome-message {
+ opacity: 0;
+ background: white;
+ border: 2px solid #ccc;
+ padding: 10px;
+ border-radius: 15px;
+ margin-top: 10px;
+ font-family: 'Playfair Display', serif;
+ position: relative;
+ animation: showText 1s forwards 5s; /* Startar efter 5 sekunder */
+}
+
+
+@keyframes showText {
+ to { opacity: 1; }
+}/* Container som flyger in */
+.butterfly-wrapper {
+ position: fixed;
+ top: 30%;
+ left: -200px;
+ display: flex;
+ align-items: center;
+ animation: flyIn 3s ease-out forwards;
+}
+
+
+/* Själva fjärilen */
+.butterfly {
+ position: relative;
+ width: 80px;
+ height: 60px;
+}
+
+
+/* Vingar */
+.wing {
+ position: absolute;
+ width: 40px;
+ height: 60px;
+ background: linear-gradient(145deg, #d2b48c, #a67c52); /* beige/brun */
+ border-radius: 50%;
+ transform-origin: center right;
+ animation: flap 0.6s infinite ease-in-out alternate;
+}
+
+
+.left {
+ left: 0;
+ transform-origin: right center;
+}
+
+
+.right {
+ right: 0;
+ transform-origin: left center;
+}
+
+
+/* Kropp */
+.body {
+ position: absolute;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 10px;
+ height: 60px;
+ background-color: #6b4f3a;
+ border-radius: 5px;
+}
+
+
+/* Text */
+.welcome-text {
+ margin-left: 20px;
+ font-size: 24px;
+ color: #6b4f3a;
+ font-weight: 500;
+ opacity: 0;
+ animation: fadeIn 1.5s ease forwards;
+ animation-delay: 2.5s;
+}
+
+
+/* Animationer */
+
+
+@keyframes flap {
+ from {
+   transform: rotateY(0deg);
+ }
+ to {
+   transform: rotateY(50deg);
+ }
+}
+
+
+@keyframes flyIn {
+ to {
+   left: 30%;
+ }
+}
+
+
+@keyframes fadeIn {
+ to {
+   opacity: 1;
+ }
+}
+
+
+/* --- POPUP --- */
+.popup-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0,0,0,0.5); /* Mörk bakgrund */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 10000; /* Ligger över allt */
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease;
+}
+
+
+.popup-overlay.show {
+   opacity: 1;
+   visibility: visible;
+}
+
+
+.popup-content {
+   background: #fff;
+   padding: 40px;
+   border-radius: 12px;
+   text-align: center;
+   position: relative;
+   max-width: 320px;
+   width: 90%;
+   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+   transform: scale(0.8);
+   transition: transform 0.3s ease;
+}
+
+
+.popup-overlay.show .popup-content {
+   transform: scale(1);
+}
+
+
+.close-popup {
+   position: absolute;
+   top: 10px;
+   right: 15px;
+   font-size: 28px;
+   cursor: pointer;
+   color: #aaa;
+   line-height: 1;
+}
+
+
+.close-popup:hover {
+   color: var(--beige);
+}
+
+
+.calling-text {
+   font-family: 'Montserrat', sans-serif;
+   font-size: 0.9rem;
+   color: #888;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   margin-bottom: 15px;
+}
+
+
+.phone-icon {
+   font-size: 4rem;
+   margin: 10px 0 20px;
+   display: inline-block;
+   animation: phoneRing 1.5s infinite ease-in-out;
+}
+
+
+.hire-text {
+   font-family: 'Playfair Display', serif;
+   font-size: 1.8rem;
+   color: var(--beige);
+   font-weight: bold;
+   margin: 0;
+}
+
+
+@keyframes phoneRing {
+   0% { transform: rotate(0deg); }
+   10% { transform: rotate(15deg); }
+   20% { transform: rotate(-15deg); }
+   30% { transform: rotate(15deg); }
+   40% { transform: rotate(-15deg); }
+   50% { transform: rotate(0deg); }
+   100% { transform: rotate(0deg); }
+}
+
+
+/* --- SKILLS & CERTIFIKAT --- */
+.skills-section {
+   background-color: var(--dark);
+   padding: 0 8% 128px;
+   border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+/* Används bara som trigger, så vi nollställer animationen på själva sektionen */
+.skills-section.fade-in-section {
+   opacity: 1;
+   transform: none;
+}
+
+
+.skills-container {
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+
+.skills-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 30px;
+   margin-top: 60px;
+}
+
+
+.skill-card {
+   background: #ffffff;
+   padding: 40px;
+   border-radius: 4px;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+   border: 1px solid rgba(0,0,0,0.03);
+
+
+   /* Startläge för animationen */
+   opacity: 0;
+   transform: translateY(20px);
+   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+
+.skill-card:hover {
+   transform: translateY(-5px);
+   border-color: var(--beige);
+}
+
+
+/* När sektionen blir synlig, animera korten */
+.skills-section.is-visible .skill-card {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+
+/* Fördröjning för en snygg "staggered" effekt */
+.skills-section.is-visible .skill-card:nth-child(1) { transition-delay: 0.1s; }
+.skills-section.is-visible .skill-card:nth-child(2) { transition-delay: 0.2s; }
+.skills-section.is-visible .skill-card:nth-child(3) { transition-delay: 0.3s; }
+
+
+.skill-card h3 {
+   font-family: 'Playfair Display', serif;
+   color: var(--beige);
+   font-size: 1.4rem;
+   margin-bottom: 25px;
+   padding-bottom: 15px;
+   border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+
+.skill-card ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+
+.skill-card li {
+   margin-bottom: 15px;
+   color: #555;
+   font-size: 1rem;
+   display: flex;
+   align-items: center;
+}
+
+
+.skill-card li::before {
+   content: "";
+   display: inline-block;
+   width: 6px;
+   height: 6px;
+   background-color: var(--beige);
+   border-radius: 50%;
+   margin-right: 15px;
+}
