@@ -33,6 +33,14 @@
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("0PTzRj7t7BzBYvZwc");
+        })();
+    </script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -398,8 +406,16 @@
 
             const handleSubmit = (e) => {
                 e.preventDefault();
-                // In a real app, you'd handle form submission here (e.g., API call)
-                setSubmitted(true);
+                
+                emailjs.sendForm('service_9kzipz4', 'template_nqsgefh', e.target)
+                    .then((result) => {
+                        alert('Email sent successfully!');
+                        e.target.reset();
+                        setSubmitted(true);
+                    }, (error) => {
+                        alert('Failed to send email. Please try again.');
+                        console.error('EmailJS error:', error);
+                    });
             };
 
             const handleCopy = () => {
@@ -436,9 +452,10 @@
                                     <p className="text-zinc-400 max-w-2xl mx-auto mb-8">
                                         Get the list of the 5 free tools that saved my life while working with brands like Stadium and Under Your Skin. Save 10 hours a week by stealing my tech stack.
                                     </p>
-                                    <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                                    <form id="contact-form" onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
                                         <input 
                                             type="email" 
+                                            name="user_email"
                                             placeholder="your.email@company.com" 
                                             required 
                                             className="flex-grow bg-zinc-900/50 border border-zinc-800 rounded-md px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-beige/50 transition-all"
