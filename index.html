@@ -1,162 +1,561 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TPWP25L2');</script>
-<!-- End Google Tag Manager -->
-   <title>Maja Augustsson | Portfolio</title>
-   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TPWP25L2');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8EMLEK6VC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D8EMLEK6VC');
+    </script>
+    <title>Maja Augustsson | Growth Marketing Portfolio</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'beige': '#E8C39E',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="home-page">
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPWP25L2"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
 
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { motion, AnimatePresence } = window.Motion;
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPWP25L2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-   <div id="navbar-placeholder"></div>
-<header id="home" class="fashion-hero">    <div class="hero-overlay">
-       <h1>MAJA<br>AUGUSTSSON</h1>
-       <p class="subtitle">Growth Marketer</p>
-      
-       <div class="profile-circle">
-           <img src="profil.jpg" alt="Maja Augustsson">
-       </div>
-   </div>
+        // Icons Component (Lucide Wrapper)
+        const Icon = ({ name, size = 24, className = "" }) => {
+            useEffect(() => {
+                lucide.createIcons();
+            }, []);
+            return <i data-lucide={name} style={{ width: size, height: size }} className={className}></i>;
+        };
 
+        const Nav = () => (
+            <nav className="fixed top-0 left-0 w-full z-50 text-white px-6 py-8 flex justify-between items-center bg-black/50 backdrop-blur-sm">
+                <div className="font-serif italic text-2xl tracking-tighter">Maja <span className="text-beige">Augustsson.</span></div>
+                <div className="hidden md:flex gap-12 text-[10px] font-medium uppercase tracking-[0.3em] text-zinc-400">
+                    <a href="#work" className="hover:text-white transition-colors">Work</a>
+                    <a href="#bag" className="hover:text-white transition-colors">The Bag</a>
+                    <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+                </div>
+            </nav>
+        );
 
-   <div class="scroll-down">
-       <span>SCROLLA</span>
-       <div class="line"></div>
-   </div>
-<p class="simple-scroll">SCROLLA NER</p>
-   </header>
+        const Hero = () => (
+            <section className="min-h-screen flex flex-col justify-end px-6 pb-24 pt-40 relative overflow-hidden">
+                <div className="absolute inset-0 grid-bg -z-10 opacity-50"></div>
+                <div className="max-w-7xl mx-auto w-full relative">
+                    <div className="mono-label mb-8 text-zinc-600">Growth Marketing Specialist</div>
+                    <h1 className="text-[14vw] md:text-[12vw] font-serif italic leading-[0.8] tracking-tighter mb-12">
+                        Growth<br />
+                        <span className="text-zinc-900 not-italic font-sans font-black">MARKETER</span>
+                    </h1>
+                    <div className="grid md:grid-cols-2 gap-12 items-end">
+                        <p className="text-xl md:text-3xl font-light text-zinc-400 max-w-xl leading-tight tracking-tight">
+                            I help brands scale through <span className="text-white italic font-serif">rigorous experimentation</span> and creative strategy. Currently refining my craft in Stockholm.
+                        </p>
+                        <div className="flex justify-end">
+                            <motion.div 
+                                whileHover={{ scale: 1.05 }}
+                                className="w-32 h-32 rounded-full border border-zinc-800 flex items-center justify-center cursor-pointer group"
+                            >
+                                <div className="text-center">
+                                    <div className="mono-label group-hover:text-white transition-colors">Scroll</div>
+                                    <Icon name="arrow-right" size={16} className="mx-auto mt-1 rotate-90 text-zinc-500" />
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
 
+        const QuoteSection = () => {
+            const [data, setData] = useState({ quote: "Loading inspiration...", author: "" });
 
-<div class="scrolling-text">
-   <span>SEO • CONTENT MARKETING • PERFORMANCE MARKETING • E-HANDEL • CRM & CX • TECHXGROWTH • </span>
-   <span>SEO • CONTENT MARKETING • PERFORMANCE MARKETING • E-HANDEL • CRM & CX • TECHXGROWTH • </span>
-</div>
+            useEffect(() => {
+                fetch('https://dummyjson.com/quotes/random')
+                    .then(res => res.json())
+                    .then(data => setData({ quote: data.quote, author: data.author }))
+                    .catch(() => setData({ quote: "Growth is the only evidence of life.", author: "John Henry Newman" }));
+            }, []);
 
+            return (
+                <section className="py-12 px-6 bg-zinc-950 border-y border-zinc-900/50">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <div className="mono-label mb-8 text-zinc-600">Today's Quote</div>
+                        <h3 className="text-3xl md:text-5xl font-serif italic text-zinc-300 mb-8 leading-tight">
+                            "{data.quote}"
+                        </h3>
+                        <div className="text-xs font-bold tracking-[0.2em] uppercase text-zinc-500">— {data.author}</div>
+                    </div>
+                </section>
+            );
+        };
 
-<section id="about" class="about-section fade-in-section">
-   <div class="about-container">
-       <div class="about-text">
-           <h2>Om Mig</h2>
-           <p>Jag pluggar Growth Marketing på Berghs School of Communication och tycker det är riktigt kul att få kombinera kreativitet med analys. För mig handlar growth om att förstå hur människor tänker och beter sig online, testa idéer, analysera resultat och hela tiden förbättra. Jag gillar att jobba datadrivet, men också att tänka nytt och hitta smarta lösningar som faktiskt gör skillnad.
+        const SectionHeader = ({ number, title }) => (
+            <div className="flex items-center gap-4 border-b border-zinc-900 pb-4 mb-12">
+                <span className="mono-label">{number}</span>
+                <h2 className="text-xs uppercase font-bold tracking-[0.3em] text-zinc-400">{title}</h2>
+            </div>
+        );
 
+        const MarketingBag = () => {
+            const courses = [
+                { name: "CRM", x: -480, y: -120 },
+                { name: "CRO", x: 200, y: -120 },
+                { name: "E handel", x: -580, y: 20 },
+                { name: "Performance marketing", x: 380, y: 20 },
+                { name: "SEO", x: -480, y: 180 },
+                { name: "Content marketing", x: 280, y: 180 },
+                { name: "Tech x growth", x: -150, y: -260 }
+            ];
 
-Utanför plugget tränar jag mycket, framför allt löpning. Jag gillar att springa maraton och andra tävlingar, det är något speciellt med att sätta upp ett mål och verkligen jobba mot det. Annars hänger jag gärna med familj och vänner, och jag tycker om att laga mat och testa nya recept.</p>
-       </div>
+            return (
+                <section id="bag" className="pt-10 pb-20 px-6 bg-black relative overflow-hidden">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-zinc-900/10 blur-[150px] rounded-full -z-10"></div>
+                    
+                    <div className="max-w-7xl mx-auto relative">
+                        <div className="text-center mb-0">
+                            <SectionHeader number="01" title="The Marketing Bag" />
+                        </div>
+                        
+                        <div className="relative flex items-center justify-center min-h-[500px]">
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 text-center w-full pointer-events-none">
+                                <h2 className="text-5xl md:text-7xl font-serif italic tracking-tighter leading-none drop-shadow-xl">
+                                    Unpacking<br />
+                                    <span className="text-zinc-400 not-italic font-sans font-black">STRATEGY</span>
+                                </h2>
+                            </div>
 
+                            <motion.div 
+                                initial={{ y: 100, opacity: 0, scale: 0.8 }}
+                                whileInView={{ y: 0, opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                                className="relative z-20 w-full max-w-4xl"
+                            >
+                                <div className="relative group">
+                                    <div className="relative aspect-square flex items-center justify-center">
+                                        <img 
+                                            src="vaska.png" 
+                                            alt="Marketing Bag" 
+                                            className="w-full h-full object-contain brightness-105 contrast-110"
+                                        />
+                                        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-2/3 h-12 bg-black/90 blur-3xl rounded-full -z-10"></div>
+                                        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 w-1/2 h-6 bg-zinc-900/50 blur-2xl rounded-full -z-10"></div>
+                                    </div>
+                                </div>
 
-       <div class="about-image-wrapper">
-           <img src="bild.jpg" alt="Maja Augustsson" class="main-image">
-       </div>
-   </div>
-</section>
+                                {courses.map((course, i) => (
+                                    <motion.div
+                                        key={course.name}
+                                        initial={{ x: 0, y: 50, opacity: 0, scale: 0 }}
+                                        whileInView={{ 
+                                            x: course.x, 
+                                            y: course.y, 
+                                            opacity: 1, 
+                                            scale: 1,
+                                            transition: { 
+                                                type: "spring", 
+                                                stiffness: 60, 
+                                                damping: 12, 
+                                                delay: 0.8 + (i * 0.1),
+                                                mass: 1.2
+                                            }
+                                        }}
+                                        viewport={{ once: true }}
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
+                                    >
+                                        <motion.div 
+                                            whileHover={{ scale: 1.1, y: -5 }}
+                                            className="px-8 py-4 bg-zinc-900 border border-zinc-800 rounded-full text-2xl font-serif italic text-white shadow-2xl cursor-default whitespace-nowrap hover:bg-zinc-800 transition-colors"
+                                        >
+                                            {course.name}
+                                        </motion.div>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        </div>
+                        
+                        <div className="mt-40 border-t border-zinc-900 pt-16">
+                            <div className="text-center mb-16">
+                                <h3 className="text-4xl font-serif italic">3 Core Principles</h3>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-16">
+                                <div className="space-y-6">
+                                    <div className="mono-label text-zinc-400">01 / Psychology First</div>
+                                    <h4 className="text-2xl font-serif italic">Understanding the 'Why' before the 'How'</h4>
+                                    <p className="text-zinc-500 text-sm leading-relaxed font-light">All growth starts with human behavior. Before I touch a tool, I dig deep into customer insights, drivers, and friction. If we don't understand why the customer acts (or doesn't act), technology doesn't matter.</p>
+                                </div>
+                                <div className="space-y-6">
+                                    <div className="mono-label text-zinc-400">02 / Full-Funnel Thinking</div>
+                                    <h4 className="text-2xl font-serif italic">Optimizing the entire journey, not just the click</h4>
+                                    <p className="text-zinc-500 text-sm leading-relaxed font-light">Growth is not just about traffic. I look at the entire chain – from first exposure and landing page to activation and loyalty. By combining creative content with technical setup, I ensure that every part of the funnel works together to drive business value.</p>
+                                </div>
+                                <div className="space-y-6">
+                                    <div className="mono-label text-zinc-400">03 / The Experimentation Mindset</div>
+                                    <h4 className="text-2xl font-serif italic">Turning data into a competitive advantage</h4>
+                                    <p className="text-zinc-500 text-sm leading-relaxed font-light">I don't guess, I test. Through a structured process of hypotheses and rapid experiments (Rapid Testing), I find what actually scales. It's about learning faster than competitors to find the most effective paths to growth.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
 
+        const projects = [
+            {
+                id: 1,
+                title: "Drypops (Startup)",
+                category: "Meta Ads",
+                year: "2024",
+                image: "drypops.jpg",
+                description: "End to end ad production and optimization. Designed high performing creatives, defined target audiences, and executed rigorous A/B testing in Meta Ads to maximize ROAS.",
+                techStack: ["Meta Ads", "CapCut", "Ads Manager", "Copywriting", "Canva"],
+                learning: "The power of creative fatigue. I learned how to monitor ad performance closely and pivot creative strategies quickly to maintain a low CAC (Customer Acquisition Cost) in a fast paced startup environment."
+            },
+            {
+                id: 2,
+                title: "Akademibokhandeln",
+                category: "SoMe & SEO",
+                year: "2023",
+                image: "bok.jpg",
+                description: "Strategic content and SEO overhaul. Analyzed web and social data to develop data backed content proposals and uncover high potential organic search opportunities.",
+                techStack: ["Google Search Console", "SEO", "Ahrefs", "GA4", "Canva"],
+                learning: "Bridging the gap between search intent and social engagement. I learned how to align SEO keywords with social media trends to create a cohesive brand presence that captures both intent and interest."
+            },
+            {
+                id: 3,
+                title: "Under Your Skin",
+                category: "CRO",
+                year: "2023",
+                image: "skin.jpg",
+                description: "Conversion rate optimization via behavioral data. Utilized GA4 and Lucky Orange to diagnose friction, prioritized hypotheses with the PIE model, and deployed A/B tests.",
+                techStack: ["GA4", "Lucky Orange", "Pretento", "CRO", "Canva"],
+                learning: "Data beats opinion. By using the PIE framework, I learned to prioritize tests based on potential impact rather than gut feeling, and how small UX tweaks can lead to significant jumps in conversion rates."
+            },
+            {
+                id: 4,
+                title: "Stadium",
+                category: "CRM & CX",
+                year: "2024",
+                image: "stadium.jpg",
+                description: "Lifecycle marketing automation. Designed and implemented seamless customer journeys in Voyado, removing friction points to enhance customer experience and retention.",
+                techStack: ["Voyado", "CRM"],
+                learning: "Personalization at scale. I learned how to map complex customer journeys and the importance of timing in automated triggers to increase retention without overwhelming the user."
+            }
+        ];
 
-<!-- SKILLS & CERTIFIKAT -->
-<section id="skills" class="skills-section fade-in-section">
-   <div class="skills-container">
-       <h2 class="section-title">Kompetens & Certifikat</h2>
-      
-       <div class="skills-grid">
-           <div class="skill-card">
-               <h3>Digital Marknadsföring</h3>
-               <ul>
-                   <li>SEO & SEM</li>
-                   <li>Social Media Marketing</li>
-                   <li>Content Strategy</li>
-                   <li>E-mail Marketing & Automation</li>
-                   <li>Konverteringsoptimering (CRO)</li>
-                   <li>Performance Marketing</li>
-                   <li>Influencer Marketing</li>
-                   <li>CRM & CX</li>
-                   <li>E-handel</li>
-               </ul>
-           </div>
+        const ProjectCard = ({ project, onClick }) => (
+            <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                onClick={() => {
+                    // Skicka event till GA4
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'project_click', {
+                            'event_category': 'Portfolio',
+                            'event_label': project.title,
+                            'project_category': project.category
+                        });
+                    }
+                    onClick(project);
+                }}
+                className="group cursor-pointer flex flex-col gap-6"
+            >
+                <div className="aspect-[4/3] overflow-hidden bg-zinc-900 rounded-sm relative">
+                    <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    <div className="absolute top-4 right-4 bg-white text-black rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                        <Icon name="arrow-up-right" size={20} />
+                    </div>
+                </div>
+                <div>
+                    <div className="flex justify-between items-baseline mb-3">
+                        <div className="mono-label text-zinc-500">{project.category}</div>
+                        <div className="mono-label text-zinc-600">{project.year}</div>
+                    </div>
+                    <h3 className="text-3xl font-serif italic text-white group-hover:text-zinc-300 transition-colors leading-tight">
+                        {project.title}
+                    </h3>
+                </div>
+            </motion.div>
+        );
 
+        const Work = ({ onProjectClick }) => (
+            <section id="work" className="py-24 px-6 bg-black">
+                <div className="max-w-7xl mx-auto">
+                    <SectionHeader number="02" title="Selected Work" />
+                    <div className="grid md:grid-cols-2 gap-x-12 gap-y-20">
+                        {projects.map(project => (
+                            <ProjectCard 
+                                key={project.id} 
+                                project={project} 
+                                onClick={onProjectClick}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
 
-           <div class="skill-card">
-               <h3>Verktyg & Tech</h3>
-               <ul>
-                   <li>Google Analytics 4 (GA4)</li>
-                   <li>Google Search Console</li>
-                   <li>Meta Ads Manager</li>
-                   <li>Ahrefs & Semrush</li>
-                   <li>Voyado & CRM-system</li>
-                   <li>Adobe Creative Cloud & Canva</li>
-               </ul>
-           </div>
+        const ProjectPage = ({ project, onBack }) => (
+            <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                className="pt-32 px-6 max-w-7xl mx-auto min-h-screen"
+            >
+                <button 
+                    onClick={onBack} 
+                    className="group flex items-center gap-2 text-zinc-500 hover:text-white transition-colors mb-12 mono-label"
+                >
+                    <Icon name="arrow-left" size={16} />
+                    Back to Work
+                </button>
+                
+                <div className="grid md:grid-cols-2 gap-12 mb-24">
+                    <div>
+                        <div className="mono-label text-zinc-500 mb-4">{project.category} / {project.year}</div>
+                        <h1 className="text-5xl md:text-7xl font-serif italic mb-8 leading-none">{project.title}</h1>
+                        
+                        <div className="flex flex-wrap gap-2 mb-8">
+                            {project.techStack && project.techStack.map((tech, i) => (
+                                <span key={i} className="px-3 py-1 bg-beige rounded-full text-[10px] font-medium uppercase tracking-wider text-black">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
 
+                        <p className="text-xl text-zinc-400 leading-relaxed max-w-lg mb-12">
+                            {project.description}
+                        </p>
 
-           <div class="skill-card">
-               <h3>Certifikat & Utbildning</h3>
-               <img src="certifikat.png" alt="Mina certifikat" style="width: 100%; height: auto; border-radius: 4px; margin-top: 10px;">
-           </div>
-       </div>
-   </div>
-</section>
+                        <div className="border-t border-zinc-900 pt-8">
+                            <h3 className="text-2xl font-serif italic mb-4">What did I learn?</h3>
+                            <p className="text-lg text-zinc-400 leading-relaxed max-w-lg">
+                                {project.learning}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                        <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </motion.div>
+        );
 
+        const LeadMagnet = () => {
+            const [submitted, setSubmitted] = useState(false);
+            const [copied, setCopied] = useState(false);
 
-<section id="education" class="education-section fade-in-section">
-   <div class="education-container">
-       <h2 class="section-title">Utbildning</h2>
-      
-       <div class="edu-item">
-           <span class="edu-year">AUGUSTI 2025 - PÅGÅENDE</span>
-           <div class="edu-content">
-               <h3>Growth Marketing</h3>
-               <p>Berghs School of Communication</p>
-               <p class="edu-details">Fokus på datadriven tillväxt, konverteringsoptimering och digital strategi.</p>
-           </div>
-       </div>
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                // In a real app, you'd handle form submission here (e.g., API call)
+                setSubmitted(true);
+            };
 
+            const handleCopy = () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                });
+            };
 
-       <div class="edu-item">
-           <span class="edu-year">SEP 2023- NOV 2023</span>
-           <div class="edu-content">
-               <h3>Marknadsföringskurs</h3>
-               <p>Berghs School of Communication</p>
-               <p class="edu-details">Målgruppssegmentering, personalisering och digitala strategier.</p>
-           </div>
-           </div>
-   </div>
-</section>
-<section id="contact" class="contact-footer fade-in-section">
-   <div class="contact-container">
-       <h2 class="contact-title">Låt oss <em>nätverka</em></h2>
-      <div class="contact-info">
-           <a href="mailto:majaugustsson@gmail.com" class="contact-link">majaugustsson@gmail.com</a>
-           <span class="contact-divider">|</span>
-           <a href="tel:0707261802" class="contact-link">070-726 18 02</a>
-           <span class="contact-divider">|</span>
-           <a href="https://www.linkedin.com/in/maja-augustsson-a09ab51b8/" target="_blank" class="contact-link">LinkedIn</a>
-       </div>
-   </div>
-</section>
+            const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent("Check out this Growth Marketer's portfolio and free tool list!")}`;
 
+            const tools = [
+                { name: "Hotjar / Lucky Orange", description: "Used for the Under Your Skin project to visualize friction and find funnel leaks." },
+                { name: "Google Looker Studio", description: "I use this to build automated dashboards that track ROI for stakeholders." },
+                { name: "AnswerThePublic", description: "My go-to for mapping search intent, as seen in my Akademibokhandeln project." },
+                { name: "Meta Ads Library", description: "The ultimate shortcut for finding high converting ad hooks from top competitors." },
+                { name: "ChatGPT (Prompt Engineering)", description: "My strategic sparring partner for brainstorming A/B test angles in record time." }
+            ];
 
-<!-- POPUP -->
-<div id="hire-popup" class="popup-overlay">
-   <div class="popup-content">
-       <span class="close-popup">&times;</span>
-       <p class="calling-text">someone's calling...</p>
-       <div class="phone-icon">📞</div>
-       <p class="hire-text">It's your next hire..</p>
-   </div>
-</div>
+            return (
+                <section className="bg-black py-24 px-6">
+                    <div className="max-w-4xl mx-auto text-center border border-zinc-900 rounded-lg p-8 md:p-16 relative overflow-hidden">
+                        <div className="absolute inset-0 grid-bg -z-10 opacity-20"></div>
+                        <AnimatePresence mode="wait">
+                            {!submitted ? (
+                                <motion.div
+                                    key="form"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <h3 className="text-4xl md:text-5xl font-serif italic mb-4">Want to skip the guesswork?</h3>
+                                    <p className="text-zinc-400 max-w-2xl mx-auto mb-8">
+                                        Get the list of the 5 free tools that saved my life while working with brands like Stadium and Under Your Skin. Save 10 hours a week by stealing my tech stack.
+                                    </p>
+                                    <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                                        <input 
+                                            type="email" 
+                                            placeholder="your.email@company.com" 
+                                            required 
+                                            className="flex-grow bg-zinc-900/50 border border-zinc-800 rounded-md px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-beige/50 transition-all"
+                                        />
+                                        <button type="submit" className="bg-beige text-black font-bold rounded-md px-8 py-3 hover:bg-opacity-90 transition-colors">
+                                            Get the Stack
+                                        </button>
+                                    </form>
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="success"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                >
+                                    <h3 className="text-3xl md:text-4xl font-serif italic mb-4 text-white">It's on its way!</h3>
+                                    <p className="text-zinc-400 max-w-2xl mx-auto mb-12">
+                                        Shared joy is double joy – send the list to your most stressed out colleague!
+                                    </p>
+                                    
+                                    <div className="text-left space-y-6 mb-12">
+                                        {tools.map(tool => (
+                                            <div key={tool.name} className="pb-4 border-b border-zinc-900">
+                                                <h4 className="font-bold text-white">{tool.name}</h4>
+                                                <p className="text-zinc-500 text-sm">{tool.description}</p>
+                                            </div>
+                                        ))}
+                                    </div>
 
+                                    <div className="flex flex-col md:flex-row justify-center gap-4">
+                                        <button onClick={handleCopy} className="bg-zinc-800 text-white font-bold rounded-md px-6 py-3 hover:bg-zinc-700 transition-colors w-full md:w-auto">
+                                            {copied ? 'Link Copied!' : 'Copy Portfolio Link'}
+                                        </button>
+                                        <a href={linkedInShareUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white font-bold rounded-md px-6 py-3 hover:bg-blue-500 transition-colors flex items-center justify-center gap-2 w-full md:w-auto">
+                                            <Icon name="linkedin" size={16} />
+                                            Share on LinkedIn
+                                        </a>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                </section>
+            );
+        };
 
-<script src="script.js"></script>
+        const Contact = () => (
+            <section id="contact" className="py-40 px-6 bg-zinc-950 text-white">
+                <div className="max-w-7xl mx-auto">
+                    <SectionHeader number="03" title="Contact" />
+                    <div className="grid lg:grid-cols-2 gap-24">
+                        <div>
+                            <h2 className="text-6xl md:text-8xl font-serif italic tracking-tighter mb-12 leading-[0.9]">Let's<br /><span className="not-italic font-sans font-black text-zinc-900">CONNECT.</span></h2>
+                            <div className="space-y-12">
+                                <a href="mailto:maja@augustsson.com" className="block text-3xl md:text-4xl font-light hover:text-zinc-400 transition-colors border-b border-zinc-900 pb-6">maja@augustsson.com</a>
+                                <div className="flex gap-12">
+                                    <a href="https://www.linkedin.com/in/maja-augustsson-a09ab51b8/" className="mono-label text-zinc-600 hover:text-white transition-colors">LinkedIn</a>
+                                    <a href="#" className="mono-label text-zinc-600 hover:text-white transition-colors">Instagram</a>
+                                    <a href="#" className="mono-label text-zinc-600 hover:text-white transition-colors">Twitter</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col justify-end">
+                            <p className="text-zinc-600 max-w-sm ml-auto text-right text-lg leading-tight font-light">
+                                Based in Stockholm, Sweden. Available for freelance projects and collaborations starting Q3 2026.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Footer = () => (
+            <footer className="px-6 py-16 border-t border-zinc-900 bg-black">
+                <div className="max-w-7xl mx-auto flex justify-between items-center">
+                    <div className="mono-label text-zinc-700">© 2026 Maja Augustsson</div>
+                    <div className="mono-label text-zinc-700">Growth / Strategy / Design</div>
+                </div>
+            </footer>
+        );
+
+        const App = () => {
+            const [activeProject, setActiveProject] = useState(null);
+
+            useEffect(() => {
+                window.scrollTo(0, 0);
+            }, [activeProject]);
+
+            if (activeProject) {
+                return (
+                    <div className="bg-black min-h-screen font-sans text-white">
+                        <Nav />
+                        <ProjectPage project={activeProject} onBack={() => setActiveProject(null)} />
+                        <Footer />
+                    </div>
+                );
+            }
+
+            return (
+                <div className="bg-black min-h-screen font-sans">
+                    <Nav />
+                    <main>
+                        <Hero />
+                        <QuoteSection />
+                        <MarketingBag />
+                        <Work onProjectClick={setActiveProject} />
+                        <LeadMagnet />
+                        <Contact />
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
