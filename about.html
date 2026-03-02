@@ -33,6 +33,9 @@
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -133,44 +136,117 @@
             );
         };
 
+        const BookHover = ({ children }) => {
+            const [isHovered, setIsHovered] = useState(false);
+
+            return (
+                <motion.div
+                    onHoverStart={() => setIsHovered(true)}
+                    onHoverEnd={() => setIsHovered(false)}
+                    className="relative inline-block"
+                >
+                    {children}
+                    <AnimatePresence>
+                        {isHovered && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.8, y: 10 }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                                className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 p-2 w-40 rounded-lg shadow-xl bg-white/10 backdrop-blur-md border border-white/20"
+                            >
+                                <img src="acourt.jpg" alt="Currently reading book cover" className="w-full h-auto rounded-md" />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </motion.div>
+            );
+        };
+
+        const DownloadSection = () => {
+            const [isDownloaded, setIsDownloaded] = useState(false);
+
+            const handleDownload = () => {
+                setIsDownloaded(true);
+                
+                // Confetti animation
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#E8C39E', '#ffffff']
+                });
+            };
+
+            return (
+                <FadeInSection>
+                    <div className="mt-24 pt-16 border-t border-zinc-800 text-center">
+                        <motion.div
+                            animate={{ scale: [1, 1.05, 1] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            className="inline-block mb-8"
+                        >
+                            <Icon name="book-open" size={48} className="text-beige" />
+                        </motion.div>
+
+                        <h2 className="text-4xl font-serif italic mb-6">
+                            From one homebody to another
+                        </h2>
+                        
+                        <p className="text-lg text-zinc-300 leading-relaxed font-light max-w-2xl mx-auto mb-10">
+                            I’ve put together a small guide called The Stockholm Reader’s Guide. It’s a collection of my favorite spots, books, and rituals that make my life in Stockholm special.
+                        </p>
+
+                        <motion.a 
+                            href="guide.pdf"
+                            download="The Stockholm Readers Guide.pdf"
+                            onClick={handleDownload}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: 'spring', stiffness: 300 }}
+                            className={`inline-block font-bold rounded-md px-8 py-4 transition-all duration-500 ${isDownloaded ? 'bg-zinc-800 text-white' : 'bg-beige text-black hover:bg-opacity-90'}`}
+                        >
+                            {isDownloaded ? 'Enjoy your reading! ✨' : 'Download my guide'}
+                        </motion.a>
+                    </div>
+                </FadeInSection>
+            );
+        };
+
         // Page Specific Content
         const AboutPage = () => (
             <main className="pt-48 px-6 pb-24 bg-black text-white">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-3xl mx-auto">
                     <FadeInSection>
                         <SectionHeader number="00" title="About Me" />
-                        <h1 className="text-5xl md:text-7xl font-serif italic mb-12 leading-tight">
-                            A Growth Marketer driven by data and human psychology.
+                        <h1 className="text-5xl md:text-6xl font-serif italic mb-12 leading-tight">
+                            A little bit about me
                         </h1>
-                        <p className="text-xl text-zinc-300 leading-relaxed mb-24 max-w-3xl">
-                            My approach to growth is simple: understand the user deeply, then build strategies that align with their needs and motivations. I believe the most sustainable growth comes from creating genuine value, not just chasing metrics. I combine creative thinking with rigorous, data-driven experimentation to find what truly works.
-                        </p>
+                        
+                        <div className="space-y-6 text-lg text-zinc-300 leading-relaxed font-light">
+                            <p>
+                                I’m a 23-year-old creative living in beautiful Kungsholmen, Stockholm. My journey began in 2021 when I started working in childcare—a role I took on because of my love for people and my drive to get a head start in my professional life. However, I always knew deep down that marketing was my true calling. Whether it was managing my own YouTube and TikTok channels or helping friends with their social media presence, I’ve always had a natural connection to the digital landscape.
+                            </p>
+                            <p>
+                                To turn that passion into expertise, I took a foundation course at Berghs School of Communication. That experience was a turning point; it opened my eyes to the industry and eventually led me back to Berghs for a full two-year program. Between my studies, I worked as a Stylist Assistant and Social Media Content Creator for a fashion brand called Rose Room Academy. It was a dream job in many ways, but it also made me realize I wanted even deeper knowledge to truly excel. Today, equipped with both a solid education and hands-on experience, I feel ready and confident to make my mark in the marketing industry.
+                            </p>
+                        </div>
                     </FadeInSection>
 
                     <FadeInSection>
-                        <div className="mt-20 border-t border-zinc-900 pt-16">
-                            <div className="text-center mb-16">
-                                <h3 className="text-4xl font-serif italic">3 Core Principles</h3>
-                            </div>
-                            <div className="grid md:grid-cols-3 gap-12">
-                                <div className="space-y-6">
-                                    <div className="mono-label text-zinc-400">01 / Psychology First</div>
-                                    <h4 className="text-2xl font-serif italic">Understanding the 'Why' before the 'How'</h4>
-                                    <p className="text-zinc-500 text-sm leading-relaxed font-light">All growth starts with human behavior. Before I touch a tool, I dig deep into customer insights, drivers, and friction. If we don't understand why the customer acts (or doesn't act), technology doesn't matter.</p>
-                                </div>
-                                <div className="space-y-6">
-                                    <div className="mono-label text-zinc-400">02 / Full-Funnel Thinking</div>
-                                    <h4 className="text-2xl font-serif italic">Optimizing the entire journey, not just the click</h4>
-                                    <p className="text-zinc-500 text-sm leading-relaxed font-light">Growth is not just about traffic. I look at the entire chain – from first exposure and landing page to activation and loyalty. By combining creative content with technical setup, I ensure that every part of the funnel works together to drive business value.</p>
-                                </div>
-                                <div className="space-y-6">
-                                    <div className="mono-label text-zinc-400">03 / The Experimentation Mindset</div>
-                                    <h4 className="text-2xl font-serif italic">Turning data into a competitive advantage</h4>
-                                    <p className="text-zinc-500 text-sm leading-relaxed font-light">I don't guess, I test. Through a structured process of hypotheses and rapid experiments (Rapid Testing), I find what actually scales. It's about learning faster than competitors to find the most effective paths to growth.</p>
-                                </div>
+                        <div className="mt-24 pt-16 border-t border-zinc-800">
+                            <h2 className="text-3xl font-serif italic mb-8">Outside of work & studies</h2>
+                            <div className="space-y-6 text-lg text-zinc-300 leading-relaxed font-light">
+                                <p>
+                                    When I’m not analyzing data or creating content, you’ll likely find me moving. I have a background in elite-level football, though these days I focus on the gym and long runs outdoors. My family means everything to me, and I’m a true homebody at heart. On weekends, I’m usually curled up with a book (perhaps not my most "wild" trait, but if you need a book recommendation, I’m your person!).
+                                </p>
+                                <p className="text-zinc-400 italic">
+                                    PS. This is what I’m reading right now: <BookHover><span className="text-beige underline decoration-dotted cursor-pointer">this book</span></BookHover>.
+                                </p>
                             </div>
                         </div>
                     </FadeInSection>
+
+                    <DownloadSection />
                 </div>
             </main>
         );
