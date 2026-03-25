@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TPWP25L2');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8EMLEK6VC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D8EMLEK6VC');
+    </script>
+    <title>Creative Work | Maja Augustsson</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'beige': '#E8C39E',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPWP25L2"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { motion, AnimatePresence } = window.Motion;
+
+        const Icon = ({ name, size = 24, className = "" }) => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return <i data-lucide={name} style={{ width: size, height: size }} className={className}></i>;
+        };
+
+        const FadeInSection = ({ children, className = "" }) => (
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className={className}
+            >
+                {children}
+            </motion.div>
+        );
+
+        const Nav = () => (
+            <nav className="fixed top-0 left-0 w-full z-50 text-white px-6 py-8 flex justify-between items-center bg-black/50 backdrop-blur-sm">
+                <a href="index.html" className="font-serif italic text-2xl tracking-tighter">Maja <span className="text-beige">Augustsson.</span></a>
+                <div className="hidden md:flex gap-12 text-[10px] font-medium uppercase tracking-[0.3em] text-zinc-400">
+                    <a href="creative.html" className="text-white">Creative Work</a>
+                    <a href="about.html" className="hover:text-white transition-colors">About Me</a>
+                    <a href="index.html#work" className="hover:text-white transition-colors">Work</a>
+                    <a href="index.html#bag" className="hover:text-white transition-colors">The Bag</a>
+                    <a href="index.html#contact" className="hover:text-white transition-colors">Contact</a>
+                </div>
+            </nav>
+        );
+
+        const SectionHeader = ({ number, title }) => (
+            <div className="flex items-center gap-4 border-b border-zinc-900 pb-4 mb-12">
+                <span className="mono-label">{number}</span>
+                <h2 className="text-xs uppercase font-bold tracking-[0.3em] text-zinc-400">{title}</h2>
+            </div>
+        );
+
+        const Footer = () => (
+            <footer className="px-6 py-16 border-t border-zinc-900 bg-black">
+                <div className="max-w-7xl mx-auto flex justify-between items-center">
+                    <div className="mono-label text-zinc-700">© 2026 Maja Augustsson</div>
+                    <div className="mono-label text-zinc-700">Growth / Strategy / Design</div>
+                </div>
+            </footer>
+        );
+
+        const Gallery = () => (
+            <main className="pt-48 px-6 pb-24 bg-black text-white min-h-screen">
+                <div className="max-w-7xl mx-auto">
+                    <FadeInSection>
+                        <SectionHeader number="01" title="The Rose Room Academy" />
+                        <h1 className="text-5xl md:text-6xl font-serif italic mb-6 leading-tight">
+                            Social Media Content Creator
+                        </h1>
+                        <p className="text-lg text-zinc-400 leading-relaxed font-light max-w-2xl mb-16">
+                            I worked with social media for the fashion company The Rose Room Academy. There, I handled everything from photography and video to analyzing potential influencer collaborations.
+                        </p>
+                        
+                        {/* Image Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                            <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                                <img src="image2.jpg" alt="Rose Room Content 1" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                            </div>
+                            <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                                <img src="image1.jpg" alt="Rose Room Content 2" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                            </div>
+                            <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                                <img src="image3.jpg" alt="Rose Room Content 3" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                            </div>
+                            <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                                <img src="image4.jpg" alt="Rose Room Content 4" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                            </div>
+                        </div>
+
+                        {/* Video Grid */}
+                        <div className="flex justify-center gap-4">
+                            <div className="w-1/2 md:w-1/4 aspect-[9/16] bg-zinc-900 rounded-sm overflow-hidden">
+                                <video src="video.MP4" controls className="w-full h-full object-cover" />
+                            </div>
+                            <div className="w-1/2 md:w-1/4 aspect-[9/16] bg-zinc-900 rounded-sm overflow-hidden">
+                                <video src="video2.MP4" controls className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </FadeInSection>
+
+                    <FadeInSection className="mt-24 pt-16 border-t border-zinc-900">
+                        <SectionHeader number="02" title="Warmly" />
+                        <h2 className="text-5xl md:text-6xl font-serif italic mb-6 leading-tight">
+                            Performance Marketer & Content Planner
+                        </h2>
+                        <p className="text-lg text-zinc-400 leading-relaxed font-light max-w-2xl mb-16">
+                            Developed and executed performance marketing campaigns and structured content plans for the brand Warmly.
+                        </p>
+
+                        {/* Image Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                            <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                                <img src="bild1.jpg" alt="Warmly Campaign 1" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                            </div>
+                            <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                                <img src="warmly2.jpeg" alt="Warmly Campaign 2" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                            </div>
+                            <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                                <img src="bild3.jpg" alt="Warmly Campaign 3" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                            </div>
+                            <div className="aspect-square bg-zinc-900 rounded-sm overflow-hidden">
+                                <img src="warmly4.jpeg" alt="Warmly Campaign 4" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                            </div>
+                        </div>
+
+                        {/* Video Grid */}
+                        <div className="flex justify-center gap-4">
+                            <div className="w-1/2 md:w-1/4 aspect-[9/16] bg-zinc-900 rounded-sm overflow-hidden">
+                                <video src="warmly.MP4" controls className="w-full h-full object-cover" />
+                            </div>
+                            <div className="w-1/2 md:w-1/4">
+                                <p className="mono-label text-zinc-500 mb-2 text-right">UGC samarbete</p>
+                                <div className="aspect-[9/16] bg-zinc-900 rounded-sm overflow-hidden">
+                                    <video src="warmlyvideo1.mov" controls className="w-full h-full object-cover" />
+                                </div>
+                            </div>
+                        </div>
+                    </FadeInSection>
+                </div>
+            </main>
+        );
+
+        const App = () => (
+            <div className="bg-black min-h-screen font-sans">
+                <Nav />
+                <Gallery />
+                <Footer />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
